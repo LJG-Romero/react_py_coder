@@ -1,0 +1,30 @@
+h1, p{
+    color: tan;
+    /* border: 1px solid red; */
+  }
+p{
+  width: 300px;
+  text-align: left;
+}
+  
+.cover {
+  height: 300px;
+  width: 600px;
+  margin-top: 170px;
+  margin-left: 30%;
+  text-align: center;
+  border: 1px solid tan;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.groupInfo{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}

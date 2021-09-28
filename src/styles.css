@@ -1,22 +1,12 @@
-h1, p{
-  color: lightgreen;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+
 }
 
-.App {
-  height: 500px;
-  width: 550px;
-  margin-top: 130px;
-  margin-left: 30%;
-  text-align: center;
-  border: 1px solid limegreen;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-}
-
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -49,4 +39,4 @@ h1, p{
   to {
     transform: rotate(360deg);
   }
-}
+} */
