@@ -1,30 +1,45 @@
-.itemContainer{
+.itemCard{
     height: 350px;
     width: 350px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    border-radius: 50px 20px 50px 20px;
     box-shadow: 0px 0px 3px var(--secondaryPage);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-.itemContainer__Img{
+.itemCard__Img{
     height: 250px;
     width: 100%;
     /* position: relative; */
     border: 1px solid var(--secondaryModel);
+
+    overflow: hidden;
+    border-radius: 50px 20px 20px 20px;
+
 }
-.itemContainer__Img img{
+.itemCard__Img img{
     height: 100%;
     width: 100%;
-    border-radius: 10px;
-    opacity: 0.8;
+    /* border-radius: 10px; */
+    border-radius: 50px 20px 20px 20px;
+    
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+
+    /* opacity: 0.8; */
 }
-.itemContainer__Img img:hover{
-    opacity: 1;
+.itemCard__Img img:hover{
+    /* opacity: 1; */
+    transform: scale(1.2,1.2);
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+
+
 }
 
-.itemContainer__Parag{
+.itemCard__Parag{
     height: 80px;
     margin-top: 10px;
     display: flex;
@@ -33,14 +48,16 @@
     align-items: center;
     border: 1px solid var(--secondaryModel);
 }
-.itemContainer__Parag h3{
+.itemCard__Parag h3{
     /* position: absolute;
     z-index: 1; */
     color: var(--primaryPage);
     border: 1px solid var(--tertiaryModel);
+    font-size: 25px;
 }
 .mainParag{
     color: var(--secondaryPage);
     text-align: center;
     border: 1px solid var(--tertiaryModel);
+    font-size: 16px;
 }

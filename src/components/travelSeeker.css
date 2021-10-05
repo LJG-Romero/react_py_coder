@@ -1,0 +1,108 @@
+.mainApp__TravelSeeker{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--secondaryModel);
+}
+.travelSeeker{
+    height: 85px;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid var(--tertiaryModel);
+    border-radius: 30px;
+    /* box-shadow: 1px 1px 3px var(--secondaryPage); */
+    border: 1px solid gold;
+
+}
+input{
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    font-size: 20px;
+    color: var(--backHeader);
+    border-radius: 20px;
+    /* border: 1px solid var(--primaryPage); */
+    border: transparent;
+    box-shadow: 1px 1px 3px var(--backHeader);
+}
+input::placeholder{
+    color: var(--backHeader);
+}
+input:focus{
+    outline: none;
+    box-shadow: 1px 1px 3px var(--primaryPage);
+    
+}
+.travelSeeker__Handlers{
+    height: 50px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid var(--quaternaryModel);
+}
+.handlers{
+    height: 30px;
+    width: 30px;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    color: var(--primaryPage);
+    background-color: white;
+    box-shadow: 1px 1px 3px var(--backHeader);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.handlers:hover{
+    background-color: var(--backHeader);
+    box-shadow: 1px 1px 3px var(--primaryPage);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.countersLabel{
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 3px;
+    
+}
+.countersAmount{
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 3px;
+
+
+}
+.book{
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    color: var(--primaryPage);
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px var(--backHeader);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.book:hover{
+    /* background-color: beige; */
+    color: var(--secondaryPage);
+    /* background-color: bisque; */
+    box-shadow: 1px 1px 3px var(--primaryPage);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}

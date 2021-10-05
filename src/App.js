@@ -2,47 +2,30 @@
 import React from "react";
 import './styles.css';
 
-/*** Assets - Img ****/
-import img from './assets/Rcu1.jpeg';
-import img2 from './assets/Vmr2.jpeg';
-import img3 from './assets/Vdr1.jpeg';
-
-// let img = img;
-// let img2 = img2;
-// let img3 = img3;
-
 /*** Components ****/
 import Header from './components/Header.js';
 import Cover from './components/CoverPage.js';
-import ItemContainer from './components/ItemContainer.js';
+import TravelSeeker from "./components/TravelSeeker";
+import ListCards from "./components/ListCards";
 
 function App() {
   return (
     <>
       <Header />
       <div className="mainApp">
+
         {/* <Cover /> */}
-        <h1>Destinos</h1>
-        <div className="mainApp__LsItems">
-          <ItemContainer
-            img = {img}
-            name = "Rio Cuarto"
-            time = "00:45"
-            acft = "Atr 72-600"
-          />
-          <ItemContainer 
-            img = {img2}
-            name = "Villa María"
-            time = "00:40"
-            acft = "Atr 72-600"
-          />
-          <ItemContainer 
-            img = {img3}
-            name = "Villa Dolores"
-            time = "00:35"
-            acft = "Atr 72-600"
-          />
-        </div>
+
+        <TravelSeeker
+          title = "Viajamos?"
+          origin = "Origen"
+          destiny = "Destino"
+        />
+
+        <ListCards
+          title = "Destinos"
+        />
+
       </div>
     </>
   );

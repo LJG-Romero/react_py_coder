@@ -20,7 +20,13 @@ function Header(){
                 </ul>
                 <ul className="nav__Cart">
                     <FontAwesomeIcon icon={faPlane} size='lg' />
+                    {/* <div className="nav__Cart__Count">
+                        <p>0</p>
+                    </div> */}
                 </ul>
+                <div className="nav__Count">
+                    <p>0</p>
+                </div>
             </nav>
         </div>
     );
