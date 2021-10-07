@@ -12,25 +12,29 @@ function TravelSeeker({title, origin, destiny}){
     const [btnStatus, setBtnStatus] = useState(false);
 
     function handleIncrease (){
-        setUserAmount(userAmount + 1);
-        if(userAmount >= 5){
+        // setUserAmount(userAmount + 1);
+        if(userAmount <= 4){
+            setUserAmount(userAmount + 1);
             setBtnStatus(true);
             console.log(btnStatus);
-
+        }
+        else if (userAmount === 5){
             alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
-            // setUserAmount(userAmount = 5); **Rompe
         }
     }
     function handleDecrease (){
-        setUserAmount(userAmount - 1);
+        // setUserAmount(userAmount - 1);
 
-        if(userAmount <= 1){
+        if(userAmount > 1){
+            setUserAmount(userAmount - 1);
             setBtnStatus(true);
             console.log(btnStatus);
 
-            alert("Ups, no podes seleccionar menos de 1 pasajero !");
             // setUserAmount(userAmount=0); **Rompe
             // useState(0) **Rompe
+        }
+        else if(userAmount === 1){
+            alert("Ups, no podes seleccionar menos de 1 pasajero !");
         }
     }
     
