@@ -13,4 +13,7 @@
     justify-content: space-evenly;
 
     border: 3px solid var(--tertiaryModel);
-  }
+}
+.detail{
+    text-decoration: none;
+}

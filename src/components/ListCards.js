@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
+
+/*** Styles ****/
 import './listCards.css'
 
 /*** Assets - Img ****/
@@ -28,7 +31,15 @@ function ListCards({title}){
             <h1>{title}</h1>
             <div className="listCards">
               {
-                destList.map( (dest) => <ItemCard data={dest}/>  )
+                destList.map( (dest) => { 
+                  // let temp = dest.img;
+                  return(
+                    <Link to={`/Detalle/${dest.id}`} className="detail">
+                      <ItemCard data={dest} key={dest.id}/> 
+                    </Link>
+                  
+                  // export default temp 
+                  )} )
               }
               {/* <ItemCard
                 img = {img}

@@ -1,20 +1,42 @@
 // import { render } from "@testing-library/react";         ***** Chequear funcionalidad
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+/*** Styles ****/
 import './styles.css';
 
 /*** Components ****/
 import Header from './components/Header.js';
 import Cover from './components/CoverPage.js';
-import TravelSeeker from "./components/TravelSeeker";
-import ListCards from "./components/ListCards";
+// import TravelSeeker from "./components/TravelSeeker";
+// import ListCards from "./components/ListCards";
+
+/*** Views ****/
+import Home from "./Views/Home";
+import Us from "./Views/Us";
+import Cities from "./Views/Cities";
+import Contact from "./Views/Contact";
+import CitiesDitail from "./Views/CitiesDitail";
+import FlightCart from "./Views/FlightCart";
+
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <div className="mainApp">
 
-        {/* <Cover /> */}
+      <Switch>
+        
+        <Route path="/" exact component={Home} />
+        <Route path="/Nosotros" component={Us} />
+        <Route path="/Destinos" component={Cities} />
+        <Route path="/Contacto" component={Contact} />
+        <Route path="/Detalle/:id" component={CitiesDitail} />
+        <Route path="/Carrito" component={FlightCart} />
+        
+      </Switch>
+  
+      {/* <div className="mainApp">
 
         <TravelSeeker
           title = "Viajamos?"
@@ -26,8 +48,8 @@ function App() {
           title = "Destinos"
         />
 
-      </div>
-    </>
+      </div> */}
+    </Router>
   );
 }
 

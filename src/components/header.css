@@ -59,8 +59,7 @@
     justify-content: flex-end;
     border: 1px solid var(--secondaryModel);
 }
-.nav__Links li{
-    /* width: 70px; */
+/* .nav__Links li{
     list-style-type: none;
     text-align: end;
     margin: 10px;
@@ -87,7 +86,41 @@
     color: var(--primaryPage);
     transition: 0.3s;
     transition-timing-function: ease-in-out;
+} */
+
+.li{
+    /* list-style-type: none; */
+    text-decoration: none;
+    margin: 10px;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: transparent;
+
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    border: 1px solid var(--tertiaryModel);
+
+    color: var(--secondaryPage);
 }
+.li:hover{
+    border-bottom: 1px solid var(--primaryPage);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+
+    color: var(--primaryPage);
+}
+
+
+
+
+
+
+
+
+
+
 .nav__Cart{
     /* height: 40px; */
     width: 50px;

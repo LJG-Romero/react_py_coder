@@ -1,15 +1,16 @@
 import React from 'react';
 import './itemCard.css';
 
-// let temp = data.img;
-// import img from {temp};
+// import temp from 
+// import img from temp;
 
 function ItemCard({data}){
     return(
         <div className="itemCard">
             <div className="itemCard__Img">
-                <img src={data.img} alt={'Img ' + data.name} />
-                {/* <h3>{props.name}</h3> */}
+                <img src={data.img} alt={`Img ${data.name}`} />
+                {/* <h3>{props.name}</h3> */
+                console.log(data.img)}
             </div>
             <div className="itemCard__Parag">
                 <h3>{data.name}</h3>

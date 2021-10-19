@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.css';
 
 /*** Components ****/
@@ -13,13 +14,20 @@ function Header(){
             </div>
             <nav className="header__Nav">
                 <ul className="nav__Links">
-                    <li><a href="#">Home</a></li>
+                    {/* <li><a href="#">Home</a></li>
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Destinos</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Contacto</a></li> */}
+                    <Link to="/" className="li">Home</Link>
+                    <Link to="/Nosotros" className="li">Nosotros</Link>
+                    <Link to="/Destinos" className="li">Destinos</Link>
+                    <Link to="/Contacto" className="li">Contacto</Link>
+                    
                 </ul>
                 <ul className="nav__Cart">
-                    <FontAwesomeIcon icon={faPlane} size='lg' />
+                    <Link to="/Carrito" className="detail">
+                        <FontAwesomeIcon icon={faPlane} size='lg' />
+                    </Link>
                     {/* <div className="nav__Cart__Count">
                         <p>0</p>
                     </div> */}
