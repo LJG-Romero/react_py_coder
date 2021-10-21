@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+/*** Styles ****/
 import './header.css';
 
 /*** Components ****/
@@ -9,9 +11,11 @@ import { faPlane } from '@fortawesome/free-solid-svg-icons';
 function Header(){
     return(
         <div className="header">
-            <div className="header__Logo">
-                <h1 className="logo">Proyect Brand</h1>
-            </div>
+            <Link to="/" className="detail">
+                <div className="header__Logo">
+                    <h1 className="logo">Proyect Brand</h1>
+                </div>
+            </Link>
             <nav className="header__Nav">
                 <ul className="nav__Links">
                     {/* <li><a href="#">Home</a></li>

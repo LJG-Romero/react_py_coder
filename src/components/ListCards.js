@@ -9,10 +9,6 @@ import img from '../assets/Rcu1.jpeg';
 import img2 from '../assets/Vmr2.jpeg';
 import img3 from '../assets/Vdr1.jpeg';
 
-// let img = img;
-// let img2 = img2;
-// let img3 = img3;
-
 /*** Components ****/
 import ItemCard from "./ItemCard";
 
@@ -32,13 +28,10 @@ function ListCards({title}){
             <div className="listCards">
               {
                 destList.map( (dest) => { 
-                  // let temp = dest.img;
                   return(
-                    <Link to={`/Detalle/${dest.id}`} className="detail">
-                      <ItemCard data={dest} key={dest.id}/> 
+                    <Link to={`/Detalle/${dest.id}`} className="detail" key={dest.id}>
+                      <ItemCard data={dest} /> 
                     </Link>
-                  
-                  // export default temp 
                   )} )
               }
               {/* <ItemCard

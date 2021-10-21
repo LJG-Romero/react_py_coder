@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from "react";
+
+/*** Components ****/
 import ItemCard from '../components/ItemCard';
+
 import img from '../assets/recovery.svg'
 
 function CitiesDitail({match}) {
-    const [destDitail, setDestDitail] = useState([]);
+    const [destDitail, setDestDitail] = useState({});
     let cityDitail = match.params.id;
+    console.log(match);
     console.log(destDitail)
 
     useEffect( () => {

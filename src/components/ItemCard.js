@@ -1,8 +1,7 @@
 import React from 'react';
-import './itemCard.css';
 
-// import temp from 
-// import img from temp;
+/*** Styles ****/
+import './itemCard.css';
 
 function ItemCard({data}){
     return(

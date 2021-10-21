@@ -55,8 +55,12 @@ h1{
   width: 100%;
   height: auto;
 }
+/* .detail{
+    text-decoration: none;
+} */
 
 .detail:-webkit-any-link{
+  text-decoration: none;
   color: var(--primaryPage);
   transition: 0.3s;
   transition-timing-function: ease-in-out;

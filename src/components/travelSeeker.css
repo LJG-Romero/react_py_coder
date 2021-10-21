@@ -19,7 +19,7 @@
     border: 1px solid gold;
 
 }
-input{
+input, select{
     height: 30px;
     width: 200px;
     text-align: center;
@@ -29,14 +29,19 @@ input{
     /* border: 1px solid var(--primaryPage); */
     border: transparent;
     box-shadow: 1px 1px 3px var(--backHeader);
+    outline-color: transparent;
+
 }
 input::placeholder{
     color: var(--backHeader);
 }
 input:focus{
     outline: none;
-    box-shadow: 1px 1px 3px var(--primaryPage);
-    
+    box-shadow: 1px 1px 3px var(--primaryPage); 
+}
+select:focus{
+    outline: 0px;
+    box-shadow: 1px 1px 3px var(--primaryPage); 
 }
 .travelSeeker__Handlers{
     height: 50px;
