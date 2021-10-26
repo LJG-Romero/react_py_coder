@@ -13,8 +13,8 @@ function Home() {
 
             <TravelSeeker
               title = "Viajamos?"
-              origin = "Origen"
-              destiny = "Destino"
+              // origin = "Origen"
+              // destiny = "Destino"
             />
 
             <ListCards

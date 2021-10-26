@@ -1,5 +1,8 @@
-import React, {useState,useEffect} from "react";
+import React, {useState,useEffect,useContext} from "react";
 import { Link } from "react-router-dom";
+
+/*** Context ****/
+import { StateContext } from "../StateContext";
 
 /*** Styles ****/
 import './travelSeeker.css'
@@ -9,91 +12,114 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
+function TravelSeeker({title}){
+    const [purchaseContainer, setPurchaseContainer] = useContext(StateContext);
 
-function TravelSeeker({title, origin, destiny}){
+    class Purchase{
+        constructor(id,ori,des,pax){
+            this.id = id;
+            this.ori = ori;
+            this.des = des;
+            this.pax = pax;
+        }
+    }
+
+    function purchaseFactory() {
+        let ref = purchaseContainer.length;
+        purchaseContainer.push(new Purchase(ref,origin,destiny,userAmount));
+        setPurchaseContainer(purchaseContainer);   
+        console.log(purchaseContainer)
+
+        // const temp = [];
+        // temp.push(new Purchase(origin,destiny,userAmount));
+        // setPurchaseContainer(temp)
+        // console.log(purchaseContainer)
+    }
+
     /* State manager - List Destinies */
+    const [optsOrig, setOptsOrig] = useState([])
     const [optsDest, setOptsDest] = useState([])
 
     /* State manager - Counter Value */
     const [userAmount, setUserAmount] = useState(1);
 
-    /* State manager - Inputs Value */
-    const [oriName, setOrigin] = useState("");
-    const [desName, setDestiny] = useState("");
-    console.log(oriName)
-
-    /* State manager - Inputs Place Holder */
-    const [oriPlaceStatus, setOriPlaceStatus] = useState(true)
-    const [desPlaceStatus, setDesPlaceStatus] = useState(true)
-
-    /* State test btn rendering */
-    const [btnStatus, setBtnStatus] = useState(true);
+    /* State manager - Select Values */
+    // const [origin, setOrigin] = useState("");
+    // const [destiny, setDestiny] = useState("");
+    const [origin, setOrigin] = useContext(StateContext);
+    const [destiny, setDestiny] = useContext(StateContext);
+    // console.log(origin,destiny)
 
     useEffect( () => {
         fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
         .then( (response) => response.json() )
-        .then( (data) => setOptsDest(data) )
+        .then( (data) => setOptsOrig(data) )
     },[])
 
     function capOriVal(e) {
         setOrigin(e.target.value)
-        console.log(oriName)
+        console.log(e.target.value)
+        console.log(origin)
     }
     function capDesVal(e) {
         setDestiny(e.target.value)
-        console.log(desName)
+        console.log(e.target.value)
+        console.log(destiny)
     }
 
-    function upOriPlaceStatus() {
-        setOriPlaceStatus(false)
-    }
-    function upDesPlaceStatus() {
-        setDesPlaceStatus(false)
+    function handleOptsDest(){
+        origin != "" && 
+        setOptsDest(optsOrig[origin - 1].routesList);
     }
 
     function handleIncrease() {
         if(userAmount <= 4){
             setUserAmount(userAmount + 1);
-            setBtnStatus(true);
-            // console.log(btnStatus);
         }
         else if (userAmount === 5){
             alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
-            setBtnStatus(false);
-            // console.log(btnStatus);
         }
     }
     function handleDecrease() {
         if(userAmount > 1){
             setUserAmount(userAmount - 1);
-            setBtnStatus(true);
-            // console.log(btnStatus);
         }
         else if(userAmount === 1){
             alert("Ups, no podes seleccionar menos de 1 pasajero !");
-            setBtnStatus(false);
         }
     }
 
-    function onSubmit() {
-        console.log(userAmount,oriName,desName)
-    }
+    // function onSubmit() {
+    //     console.log(userAmount,origin,destiny)
+    // }
     
     return(
         <div className="mainApp__TravelSeeker">
             <h1>{title}</h1>
             <div className="travelSeeker">
-                {/* <input type="text" placeholder={oriPlaceStatus? origin : undefined} value={oriName} onFocus={upOriPlaceStatus} onChange={capOriVal}/> */}
-                <select name="listDest" id="" onChange={capOriVal}>
+                
+                <select name="listOrig" id="" onChange={capOriVal}>
                     <option value="" disabled selected> Origen </option>
-                    {optsDest.map ( (opt) => {
-                        return(
-                            <option value={opt.id} key={opt.id}>{opt.name}</option>
-                        )
-                    })
+                    {
+                        optsOrig.map ( (opt) => {
+                            return(
+                                <option value={opt.id} key={opt.id}>{opt.name}</option>
+                            )
+                        })
                     }
                 </select>
-                <input type="text" placeholder={desPlaceStatus? destiny : undefined} value={desName} onFocus={upDesPlaceStatus} onChange={capDesVal}/>
+
+                <select name="listDest" id="" onFocus={handleOptsDest} onChange={capDesVal}>
+                    <option value="" disabled selected> Destino </option>
+                    {
+                        optsDest.map ( (opt2) => {
+                            return(
+                                <option value={opt2.id} key={opt2.id}>{opt2.name}</option>
+                            )
+                        })
+                    }
+                </select>
+
                 <div className="travelSeeker__Handlers">
                     <p className="countersLabel">Adultos:</p>
                     <span className="handlers" onClick={handleIncrease}>
@@ -104,10 +130,11 @@ function TravelSeeker({title, origin, destiny}){
                         <FontAwesomeIcon icon={faMinus} size='lg' />
                     </span>
                 </div>
+
                 <Link to="/Carrito" className="detail">
-                    <button className="book" disabled={btnStatus === false} onClick={onSubmit}>Buscar</button>
+                    <button className="book" onClick={purchaseFactory}>Buscar</button>
                 </Link>
-                {/* className={btnStatus? "book" : "nada"} EJ de asignacion de atributo y clases dinamicas con condicional ternario (operador ternario)*/}
+
             </div>
         </div>
     );

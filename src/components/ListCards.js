@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 import './listCards.css'
 
 /*** Assets - Img ****/
-import img from '../assets/Rcu1.jpeg';
-import img2 from '../assets/Vmr2.jpeg';
-import img3 from '../assets/Vdr1.jpeg';
+// import img from '../assets/Rcu1.jpeg';
+// import img2 from '../assets/Vmr2.jpeg';
+// import img3 from '../assets/Vdr1.jpeg';
 
 /*** Components ****/
 import ItemCard from "./ItemCard";
 
 function ListCards({title}){
   const [destList, setDestList] = useState([]);
-  console.log(destList)
+  // console.log(destList)
   useEffect( () => {
       fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
         .then((response) => response.json())

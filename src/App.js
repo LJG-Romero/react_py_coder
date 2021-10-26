@@ -2,6 +2,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+/*** Context ****/
+import { StateProvider } from "./StateContext";
+
 /*** Styles ****/
 import './styles.css';
 
@@ -22,34 +25,36 @@ import FlightCart from "./Views/FlightCart";
 
 function App() {
   return (
-    <Router>
-      <Header />
+    <StateProvider>
+      <Router>
+        <Header />
 
-      <Switch>
-        
-        <Route path="/" exact component={Home} />
-        <Route path="/Nosotros" component={Us} />
-        <Route path="/Destinos" component={Cities} />
-        <Route path="/Contacto" component={Contact} />
-        <Route path="/Detalle/:id" component={CitiesDitail} />
-        <Route path="/Carrito" component={FlightCart} />
-        
-      </Switch>
-  
-      {/* <div className="mainApp">
+        <Switch>
 
-        <TravelSeeker
-          title = "Viajamos?"
-          origin = "Origen"
-          destiny = "Destino"
-        />
+          <Route path="/" exact component={Home} />
+          <Route path="/Nosotros" component={Us} />
+          <Route path="/Destinos" component={Cities} />
+          <Route path="/Contacto" component={Contact} />
+          <Route path="/Detalle/:id" component={CitiesDitail} />
+          <Route path="/Carrito" component={FlightCart} />
 
-        <ListCards
-          title = "Destinos"
-        />
+        </Switch>
+    
+        {/* <div className="mainApp">
 
-      </div> */}
-    </Router>
+          <TravelSeeker
+            title = "Viajamos?"
+            origin = "Origen"
+            destiny = "Destino"
+          />
+
+          <ListCards
+            title = "Destinos"
+          />
+
+        </div> */}
+      </Router>
+    </StateProvider>
   );
 }
 
