@@ -8,9 +8,10 @@ import { StateContext } from "../StateContext";
 import './travelSeeker.css'
 
 /*** Components ****/
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faMinus } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlus } from '@fortawesome/free-solid-svg-icons';
+// import { faMinus } from '@fortawesome/free-solid-svg-icons';
+import Counter from "./Counter";
 
 function TravelSeeker({title}){
     const {purchaseContainer, setPurchaseContainer, origin, setOrigin,destiny, setDestiny} = useContext(StateContext);
@@ -129,7 +130,13 @@ function TravelSeeker({title}){
                     }
                 </select>
 
-                <div className="travelSeeker__Handlers">
+                <Counter
+                    state={userAmount}
+                    fun1={handleIncrease}
+                    fun2={handleDecrease}
+                />
+
+                {/* <div className="travelSeeker__Handlers">
                     <p className="countersLabel">Adultos:</p>
                     <span className="handlers" onClick={handleIncrease}>
                         <FontAwesomeIcon icon={faPlus} size='lg' />
@@ -138,7 +145,7 @@ function TravelSeeker({title}){
                     <span className="handlers" onClick={handleDecrease}>
                         <FontAwesomeIcon icon={faMinus} size='lg' />
                     </span>
-                </div>
+                </div> */}
 
                 <Link to="/Carrito" className="detail">
                     <button className="book" onClick={purchaseFactory}>Buscar</button>

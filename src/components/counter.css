@@ -1,0 +1,45 @@
+.travelSeeker__Handlers{
+    height: 50px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid var(--quaternaryModel);
+}
+.handlers{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    color: var(--primaryPage);
+    background-color: white;
+    box-shadow: 1px 1px 3px var(--backHeader);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.handlers:hover{
+    background-color: var(--backHeader);
+    box-shadow: 1px 1px 3px var(--primaryPage);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.countersLabel{
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 3px;
+    
+}
+.countersAmount{
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 3px;
+}
