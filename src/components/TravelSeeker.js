@@ -13,26 +13,43 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 function TravelSeeker({title}){
-    const [purchaseContainer, setPurchaseContainer] = useContext(StateContext);
+    const {purchaseContainer, setPurchaseContainer, origin, setOrigin,destiny, setDestiny} = useContext(StateContext);
+    console.log(purchaseContainer)
+    console.log(origin)
+    console.log(destiny)
 
-    class Purchase{
-        constructor(id,ori,des,pax){
-            this.id = id;
-            this.ori = ori;
-            this.des = des;
-            this.pax = pax;
-        }
-    }
+    // let identifier = 0;
+
+    // class Purchase{
+    //     constructor(id,ori,des,pax){
+    //         this.id = id;
+    //         this.ori = ori;
+    //         this.des = des;
+    //         this.pax = pax;
+    //     }
+    // }
 
     function purchaseFactory() {
-        let ref = purchaseContainer.length;
-        purchaseContainer.push(new Purchase(ref,origin,destiny,userAmount));
-        setPurchaseContainer(purchaseContainer);   
+        // let ref = purchaseContainer.length;
+        // purchaseContainer.push(new Purchase(ref,origin,destiny,userAmount));
+        // setPurchaseContainer(purchaseContainer);   
+        // console.log(purchaseContainer)
+
+        let newPurchase = {
+            // id: identifier ++,
+            origin: origin,
+            destiny: destiny,
+            userAmount: userAmount
+        }
+
+        let temp = [];
+        temp.push(newPurchase)
+        const newPurchaseContainer = purchaseContainer.concat(temp);
+        setPurchaseContainer(newPurchaseContainer);
         console.log(purchaseContainer)
 
-        // const temp = [];
-        // temp.push(new Purchase(origin,destiny,userAmount));
-        // setPurchaseContainer(temp)
+        // setPurchaseContainer(purchaseContainer.push(newPurchase))
+        // console.log(newPurchase)
         // console.log(purchaseContainer)
     }
 
@@ -46,9 +63,9 @@ function TravelSeeker({title}){
     /* State manager - Select Values */
     // const [origin, setOrigin] = useState("");
     // const [destiny, setDestiny] = useState("");
-    const [origin, setOrigin] = useContext(StateContext);
-    const [destiny, setDestiny] = useContext(StateContext);
-    // console.log(origin,destiny)
+    // console.log(origin)
+    // console.log(destiny)
+
 
     useEffect( () => {
         fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
@@ -58,13 +75,9 @@ function TravelSeeker({title}){
 
     function capOriVal(e) {
         setOrigin(e.target.value)
-        console.log(e.target.value)
-        console.log(origin)
     }
     function capDesVal(e) {
         setDestiny(e.target.value)
-        console.log(e.target.value)
-        console.log(destiny)
     }
 
     function handleOptsDest(){
@@ -88,10 +101,6 @@ function TravelSeeker({title}){
             alert("Ups, no podes seleccionar menos de 1 pasajero !");
         }
     }
-
-    // function onSubmit() {
-    //     console.log(userAmount,origin,destiny)
-    // }
     
     return(
         <div className="mainApp__TravelSeeker">
