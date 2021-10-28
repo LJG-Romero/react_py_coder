@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useContext}from 'react';
 import { Link } from 'react-router-dom';
+
+/*** Context ****/
+import { StateContext } from "../StateContext";
 
 /*** Styles ****/
 import './header.css';
@@ -9,6 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlane } from '@fortawesome/free-solid-svg-icons';
 
 function Header(){
+    const {purchaseContainer} = useContext(StateContext);
+
     return(
         <div className="header">
             <Link to="/" className="detail">
@@ -37,7 +42,7 @@ function Header(){
                     </div> */}
                 </ul>
                 <div className="nav__Count">
-                    <p>0</p>
+                    <p>{purchaseContainer.length}</p>
                 </div>
             </nav>
         </div>

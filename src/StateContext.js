@@ -5,12 +5,13 @@ export const StateContext = createContext();
 /* Provider model with arrow function */
 export const StateProvider = ({children}) => {
     const [purchaseContainer, setPurchaseContainer] = useState([]);
-    console.log(purchaseContainer)
-
+    
     const [origin, setOrigin] = useState("");
     const [destiny, setDestiny] = useState("");
-    console.log(origin)
-    console.log(destiny)
+
+    // console.log(purchaseContainer)
+    // console.log(origin)
+    // console.log(destiny)
 
     return(
         <StateContext.Provider value={{purchaseContainer,setPurchaseContainer,origin,setOrigin,destiny,setDestiny}} >

@@ -8,16 +8,13 @@ import { StateContext } from "../StateContext";
 import './travelSeeker.css'
 
 /*** Components ****/
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faPlus } from '@fortawesome/free-solid-svg-icons';
-// import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import Counter from "./Counter";
 
 function TravelSeeker({title}){
     const {purchaseContainer, setPurchaseContainer, origin, setOrigin,destiny, setDestiny} = useContext(StateContext);
     console.log(purchaseContainer)
-    console.log(origin)
-    console.log(destiny)
+    // console.log(origin)
+    // console.log(destiny)
 
     // let identifier = 0;
 
@@ -75,6 +72,14 @@ function TravelSeeker({title}){
     },[])
 
     function capOriVal(e) {
+        // let temp = e.target.value;
+        /*Opt1*/
+        // setOrigin(optsOrig[temp-1].name)
+
+        /*Opt2*/
+        // const temp1 = optsOrig.find(obj => obj.id === temp)
+        // setOrigin(temp1.name)
+
         setOrigin(e.target.value)
     }
     function capDesVal(e) {

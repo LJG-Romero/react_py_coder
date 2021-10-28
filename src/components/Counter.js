@@ -9,7 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 function Counter({state,fun1,fun2}) {
-    console.log(state);
+    // console.log(state);
     return (
         <div className="travelSeeker__Handlers">
             <p className="countersLabel">Adultos:</p>
