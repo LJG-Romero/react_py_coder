@@ -1,0 +1,46 @@
+.itemFlight{
+    flex-basis: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--quaternaryModel);
+    border-radius: 15px;
+}
+.selected{
+    flex-basis: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--quaternaryModel);
+    border-radius: 15px;
+
+    background-color: var(--primaryPage);
+}
+.selected .highlight{
+    color: var(--secondaryPage);
+}
+.itemFlight:hover{
+    background-color: lightgoldenrodyellow;
+}
+.itemFlight:hover .highlight{
+    color: var(--secondaryPage);
+}
+.itemFlight__Date{
+    font-size: 30px;
+    text-align: center;
+    /* color: var(--secondaryPage); */
+}
+.itemFlight__Price{
+    font-size: 15px;
+    text-align: center;
+    /* color: var(--secondaryPage); */
+
+}
+.itemFlight__Seats{
+    font-size: 10px;
+    text-align: center;
+    /* color: var(--secondaryPage); */
+
+}

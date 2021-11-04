@@ -1,5 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+
+/*** Context ****/
+import { StateContext } from "../StateContext";
 
 /*** Styles ****/
 import './listCards.css'
@@ -13,13 +16,15 @@ import './listCards.css'
 import ItemCard from "./ItemCard";
 
 function ListCards({title}){
-  const [destList, setDestList] = useState([]);
+  // const [destList, setDestList] = useState([]);
+  const {optsOrig} = useContext(StateContext);
   // console.log(destList)
-  useEffect( () => {
-      fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
-        .then((response) => response.json())
-        .then((data) => setDestList(data));
-    },[])
+
+  // useEffect( () => {
+  //     fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
+  //       .then((response) => response.json())
+  //       .then((data) => setDestList(data));
+  //   },[])
 
 
     return(
@@ -27,7 +32,8 @@ function ListCards({title}){
             <h1>{title}</h1>
             <div className="listCards">
               {
-                destList.map( (dest) => { 
+                // destList.map( (dest) => { 
+                optsOrig.map( (dest) => {
                   return(
                     <Link to={`/Detalle/${dest.id}`} className="detail" key={dest.id}>
                       <ItemCard data={dest} /> 

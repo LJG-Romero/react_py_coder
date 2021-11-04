@@ -1,0 +1,38 @@
+.purchFlightSelec{
+    /* width: 80vw; */
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--primaryModel);
+}
+.purchFlightSelec h3{
+    color: var(--primaryPage);
+    font-size: 30px;
+    margin: 15px;
+}
+.purchFlightSelec__Dates{
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid var(--secondaryModel);
+
+}
+.purchFlightSelec__Dates p{
+    width: 100px;
+    color: var(--primaryPage);
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid var(--tertiaryModel);
+
+}
+.purchFlightSelec__Items{
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid var(--secondaryModel);
+
+}

@@ -21,6 +21,7 @@ import Cities from "./Views/Cities";
 import Contact from "./Views/Contact";
 import CitiesDitail from "./Views/CitiesDitail";
 import FlightCart from "./Views/FlightCart";
+import PurchFlightSelec from "./Views/PurchFlightSelec";
 
 
 function App() {
@@ -36,7 +37,8 @@ function App() {
           <Route path="/Destinos" component={Cities} />
           <Route path="/Contacto" component={Contact} />
           <Route path="/Detalle/:id" component={CitiesDitail} />
-          <Route path="/Carrito" component={FlightCart} />
+          <Route path="/SelecciónDeVuelos" component={PurchFlightSelec} />
+          <Route path="/CarritoDeVuelos" component={FlightCart} />
 
         </Switch>
     

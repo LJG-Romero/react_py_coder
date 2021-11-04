@@ -4,44 +4,49 @@ import { Link } from "react-router-dom";
 /*** Context ****/
 import { StateContext } from "../StateContext";
 
+/*** Styles ****/
+import './flightCart.css'
+
 /*** Components ****/
-import ElementCart from "../components/ElementCart";
+import ItemCart from "../components/ItemCart";
 
 function FlightCart() {
 
-    const {purchaseContainer, setPurchaseContainer} = useContext(StateContext);
+    const {purchaseContainer, handlePurchaseContainer} = useContext(StateContext);
     console.log(purchaseContainer);
 
-    function handlePurchaseContainer() {
-        setPurchaseContainer([]);
-        console.log(purchaseContainer);
-    }
+    // function handlePurchaseContainer() {
+    //     setPurchaseContainer([]);
+    //     console.log(purchaseContainer);
+    // }
 
     return (
-        <div className="provisoryStyle">
-            <h1>Carrito de Vuelo - <strong>En Construcción</strong></h1>
+        <div className="flightCart">
+            <h1>Carrito de Vuelos </h1>
                 {purchaseContainer.length === 0?
-                    <div>
-                        <p>Nada por aqui, nada por allá ...</p>
-                        <p>Ganas de viajar?</p>
-                        <Link to={"/"} className="detail">
-                            <button className="book" >Iniciar reserva</button>
-                        </Link>
+                    <div className="flightCart__Empty">
+                        <p className="flightCart__P">Nada por aquí, nada por allá ...</p>
+                        <div className="btnContainer">
+                            <p className="flightCart__P">Ganas de viajar?</p>
+                            <Link to={"/"} className="detail">
+                                <button className="generalBtn" >Iniciar reserva</button>
+                            </Link>
+                        </div>
                     </div>
                     :
-                    <div>
+                    <div className="flightCart__Container">
                         {purchaseContainer.map ( (purch) => {
                             return(
-                                <ElementCart data={purch} />     
+                                <ItemCart data={purch} />     
                             )
                         })}
-                        <div>
-                            <button className="book" onClick={handlePurchaseContainer}>Vaciar carrito</button>
+                        <div className="btnContainer">
+                            <button className="generalBtn" onClick={handlePurchaseContainer}>Vaciar carrito</button>
                             <Link to={"/"} className="detail">
-                                <button className="book" >Sumar otra reserva</button>
+                                <button className="generalBtn" >Nueva reserva</button>
                             </Link>
                             <Link to={"/"} className="detail">
-                                <button className="book" >Finalizar compra</button>
+                                <button className="generalBtn" >Finalizar compra</button>
                             </Link>
                         </div>
                     </div>

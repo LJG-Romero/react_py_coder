@@ -109,3 +109,14 @@ select:focus{
     transition: 0.3s;
     transition-timing-function: ease-in-out;
 }
+.disabled{
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    color: var(--primaryPage);
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px var(--backHeader);
+    opacity: 0.5;
+}

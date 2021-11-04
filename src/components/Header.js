@@ -34,7 +34,7 @@ function Header(){
                     
                 </ul>
                 <ul className="nav__Cart">
-                    <Link to="/Carrito" className="detail">
+                    <Link to="/CarritoDeVuelos" className="detail">
                         <FontAwesomeIcon icon={faPlane} size='lg' />
                     </Link>
                     {/* <div className="nav__Cart__Count">
