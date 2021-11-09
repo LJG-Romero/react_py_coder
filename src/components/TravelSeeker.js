@@ -18,7 +18,8 @@ function TravelSeeker({title}){
             capDesVal,
             optsOrig,
             optsDest,
-            handleFlightOpts
+            handleFlightOpts,
+            userAmount, handleIncrease, handleDecrease
         } = useContext(StateContext);
 
     // class Purchase{
@@ -58,9 +59,9 @@ function TravelSeeker({title}){
                 </select>
 
                 <Counter
-                    // state={userAmount}
-                    // fun1={handleIncrease}
-                    // fun2={handleDecrease}
+                    state={userAmount}
+                    fun1={handleIncrease}
+                    fun2={handleDecrease}
                 />
 
                 {/* <div className="travelSeeker__Handlers">

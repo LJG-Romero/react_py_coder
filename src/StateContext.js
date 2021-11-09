@@ -60,18 +60,19 @@ export const StateProvider = ({children}) => {
         // setPurchaseContainer(purchaseContainer);   
         // console.log(purchaseContainer)
         // identifier ++;
-        let temp1 = idPurch
-        temp1++
-        setIdPurch(temp1)
-        setFocus(false)
-        setOptsDest([])
-        setOrigin("")
 
+        // let temp1 = idPurch;
+        // temp1++;
+        // setIdPurch(temp1);
+        setFocus(false);
+        
         let newPurchase = {
-            id: temp1,
+            // id: temp1,
+            id: idPurch,
             origin: optsOrig[origin - 1].name,
             destiny: optsDest[destiny - 1].name,
-            price: price,
+            // price: price,
+            price: price * userAmount,
             userAmount: userAmount
         }
 
@@ -80,10 +81,13 @@ export const StateProvider = ({children}) => {
         const newPurchaseContainer = purchaseContainer.concat(temp);
         setPurchaseContainer(newPurchaseContainer);
         console.log(purchaseContainer)
-
+        
         // setPurchaseContainer(purchaseContainer.push(newPurchase))
         // console.log(newPurchase)
         // console.log(purchaseContainer)
+        setOptsDest([]);
+        setOrigin("");
+        setUserAmount(1);
     }
 
     function handleIncrease() {
@@ -134,15 +138,7 @@ export const StateProvider = ({children}) => {
         console.log(price)
         // setPrice(e.target.innerHTML);
     }
-    function removeItemCart(db) {
-        // console.log(vari)
-        console.log(db.id)
-        // let temp = vari - 1;
-        let temp = db.id - 1;
-
-        let temp1 = purchaseContainer.splice(temp,1);
-        setIdPurch(idPurch - 1)
-    }
+    
     function calculatePurchAmount(db) {
         return db.price * db.userAmount
     }
@@ -159,6 +155,7 @@ export const StateProvider = ({children}) => {
                 offerOpts,
                 price,
                 focus,
+                idPurch,
                 purchaseFactory,
                 capOriVal,
                 handleOptsDest,
@@ -169,9 +166,8 @@ export const StateProvider = ({children}) => {
                 handleFlightOpts,
                 handlePrice,
                 handleFocuStatus,
-                removeItemCart,
-                // setIdPurch,
-                calculatePurchAmount
+                setIdPurch,
+                calculatePurchAmount,
                 
             }
         }>

@@ -20,6 +20,13 @@ function FlightCart() {
     //     console.log(purchaseContainer);
     // }
 
+    if (purchaseContainer.length > 0){
+        purchaseContainer.sort( function(a,b){
+            return a.id - b.id;
+        } 
+    )
+}
+
     return (
         <div className="flightCart">
             <h1>Carrito de Vuelos </h1>
@@ -37,7 +44,7 @@ function FlightCart() {
                     <div className="flightCart__Container">
                         {purchaseContainer.map ( (purch) => {
                             return(
-                                <ItemCart data={purch} />     
+                                <ItemCart data={purch} key={purch.origin} />     
                             )
                         })}
                         <div className="btnContainer">

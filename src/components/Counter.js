@@ -12,9 +12,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 
-function Counter() {
+function Counter({state,fun1,fun2}) {
 
-    const {userAmount, handleIncrease, handleDecrease} = useContext(StateContext);
+    // const {userAmount, handleIncrease, handleDecrease} = useContext(StateContext);
 
 
     /* State manager - Counter Value */
@@ -42,11 +42,17 @@ function Counter() {
     return (
         <div className="travelSeeker__Handlers">
             <p className="countersLabel">Adultos:</p>
-            <span className="handlers" onClick={handleIncrease}>
+            {/* <span className="handlers" onClick={handleIncrease}> */}
+            <span className="handlers" onClick={fun1}>
+
                 <FontAwesomeIcon icon={faPlus} size='lg' />
             </span>
-            <p className="countersAmount">{userAmount}</p>
-            <span className="handlers" onClick={handleDecrease}>
+            {/* <p className="countersAmount">{userAmount}</p> */}
+            <p className="countersAmount">{state}</p>
+
+            {/* <span className="handlers" onClick={handleDecrease}> */}
+            <span className="handlers" onClick={fun2}>
+
                 <FontAwesomeIcon icon={faMinus} size='lg' />
             </span>
         </div>

@@ -10,15 +10,31 @@ import './itemCart.css'
 import Counter from './Counter'
 
 function ItemCart({data}) {
-    const {calculatePurchAmount,setIdPurch,idPurch,removeItemCart} = useContext(StateContext)
-    // console.log(data.id)
-    // let tempp = data.id
+    const {calculatePurchAmount,setIdPurch,idPurch,purchaseContainer} = useContext(StateContext)
+
+    // console.log(data)
+    // let a = data.id
+    // console.log(a)
+    // let b = a - 1
+    // console.log(b)
 
     // function removeItemCart() {
-    //     let temp = tempp - 1;
-    //     let temp1 = purchaseContainer.splice(temp,1);
+    //     let trash = purchaseContainer.splice(b,1);
     //     setIdPurch(idPurch - 1)
     // }
+    function removeItemCart() {
+        // let idx = purchaseContainer.findIndex( (purch) => purch.origin === data.origin && purch.destiny === data.destiny && purch.userAmount === data.userAmount);
+
+        let idx = purchaseContainer.indexOf(data);
+        console.log(idx);
+
+        let trash = purchaseContainer.splice(idx,1);
+        
+                let temp = data.id;
+                console.log(temp);
+                setIdPurch(temp - 1)
+    }
+
 
     return (
         <div className="itemCart" >
@@ -32,10 +48,12 @@ function ItemCart({data}) {
                 <p className="itemCart__P"><strong> {data.origin}</strong></p>
                 <p className="itemCart__P"><strong> {data.destiny}</strong></p>
                 <p className="itemCart__P"><strong>{data.userAmount}</strong></p>
-                <p className="itemCart__Price"><strong> ${calculatePurchAmount(data)}</strong></p>
+                <p className="itemCart__Price"><strong> ${data.price}</strong></p>
+                {/* <p className="itemCart__Price"><strong> ${calculatePurchAmount(data)}</strong></p> */}
+
             </div>
             <div className="btnContainer--ItemCart">
-                <button className="generalBtn" onClick={(data) => removeItemCart(data)}>Eliminar</button>       
+                <button className="generalBtn" onClick={removeItemCart}>Eliminar</button>       
                 <Counter/>
             </div>
         </div>

@@ -30,7 +30,7 @@ function PurchFlightSelec() {
                 {
                     offerOpts.map ( (offer) => {
                         return(
-                                <ItemFlight data={offer}/>
+                                <ItemFlight data={offer} key={offer.id} />
                         )
                     })
                 }
