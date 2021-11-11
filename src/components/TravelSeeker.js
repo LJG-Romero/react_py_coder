@@ -19,7 +19,8 @@ function TravelSeeker({title}){
             optsOrig,
             optsDest,
             handleFlightOpts,
-            userAmount, handleIncrease, handleDecrease
+            focus,
+            destSelect
         } = useContext(StateContext);
 
     // class Purchase{
@@ -59,9 +60,10 @@ function TravelSeeker({title}){
                 </select>
 
                 <Counter
-                    state={userAmount}
-                    fun1={handleIncrease}
-                    fun2={handleDecrease}
+                    goods={{}}
+                    // state={userAmount}
+                    // fun1={handleIncrease}
+                    // fun2={handleDecrease}
                 />
 
                 {/* <div className="travelSeeker__Handlers">
@@ -76,7 +78,7 @@ function TravelSeeker({title}){
                 </div> */}
 
                 <Link to="/SelecciónDeVuelos" className="detail">
-                    <button className="book" onClick={handleFlightOpts}>Buscar</button>
+                    <button className={destSelect? "book" : "disabled"} onClick={handleFlightOpts} disabled={!destSelect}>Buscar</button>
                     {/* <button className="book" onClick={purchaseFactory}>Buscar</button> */}
                 </Link>
 

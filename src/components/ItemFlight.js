@@ -8,7 +8,7 @@ import { StateContext } from '../StateContext'
 import './itemFlight.css'
 
 function ItemFlight({data}) {
-    const {handlePrice,price,focus,handleFocuStatus,setIdPurch} = useContext(StateContext);
+    const {handlePrice,price,focus,handleFocuStatus,setIdPurch,setTest} = useContext(StateContext);
     const [select, setSelect] = useState(false);
     let temp = data.price
 
@@ -30,6 +30,7 @@ function ItemFlight({data}) {
             setIdPurch(data.id)
             setSelect(!select);
             handleFocuStatus();
+            setTest(false);
         }
     }
     // function handleSelectStatus() {

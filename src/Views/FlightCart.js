@@ -12,8 +12,9 @@ import ItemCart from "../components/ItemCart";
 
 function FlightCart() {
 
-    const {purchaseContainer, handlePurchaseContainer} = useContext(StateContext);
+    const {purchaseContainer, handlePurchaseContainer,test, setCounterStatus} = useContext(StateContext);
     console.log(purchaseContainer);
+    console.log(test)
 
     // function handlePurchaseContainer() {
     //     setPurchaseContainer([]);
@@ -50,7 +51,7 @@ function FlightCart() {
                         <div className="btnContainer">
                             <button className="generalBtn" onClick={handlePurchaseContainer}>Vaciar carrito</button>
                             <Link to={"/"} className="detail">
-                                <button className="generalBtn" >Nueva reserva</button>
+                                <button className="generalBtn" onClick={ () => setCounterStatus(false) } >Nueva reserva</button>
                             </Link>
                             <Link to={"/"} className="detail">
                                 <button className="generalBtn" >Finalizar compra</button>

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useState, useContext} from "react";
 
 /*** Context ****/
 import { StateContext } from "../StateContext";
@@ -12,9 +12,40 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 
-function Counter({state,fun1,fun2}) {
+function Counter({goods}) {
 
-    // const {userAmount, handleIncrease, handleDecrease} = useContext(StateContext);
+    const {userAmount, handleIncrease, handleDecrease, counterStatus, setUserAmount} = useContext(StateContext);
+    const [purchAmount, setPurchAmount] = useState(0);
+    let amount = 0;
+    let fun = null;
+    if (counterStatus){
+        setPurchAmount(goods.userAmount);
+        fun = setPurchAmount;
+        amount = purchAmount;
+    }
+    else{
+        fun = setUserAmount
+        amount = userAmount
+    }
+    console.log(amount);
+    console.log(fun);
+
+    // function handleIncrease(a,func) {
+    //     if(a <= 4){
+    //         func(a + 1);
+    //     }
+    //     else if (a === 5){
+    //         alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
+    //     }
+    // }
+    // function handleDecrease(b,func) {
+    //     if(b > 1){
+    //         func(b - 1);
+    //     }
+    //     else if(b === 1){
+    //         alert("Ups, no podes seleccionar menos de 1 pasajero !");
+    //     }
+    // }
 
 
     /* State manager - Counter Value */
@@ -42,16 +73,16 @@ function Counter({state,fun1,fun2}) {
     return (
         <div className="travelSeeker__Handlers">
             <p className="countersLabel">Adultos:</p>
-            {/* <span className="handlers" onClick={handleIncrease}> */}
-            <span className="handlers" onClick={fun1}>
+            <span className="handlers" onClick={()=>{handleIncrease(amount, fun)}}>
+            {/* <span className="handlers" onClick={fun1}> */}
 
                 <FontAwesomeIcon icon={faPlus} size='lg' />
             </span>
-            {/* <p className="countersAmount">{userAmount}</p> */}
-            <p className="countersAmount">{state}</p>
+            <p className="countersAmount">{amount}</p>
+            {/* <p className="countersAmount">{state}</p> */}
 
-            {/* <span className="handlers" onClick={handleDecrease}> */}
-            <span className="handlers" onClick={fun2}>
+            <span className="handlers" onClick={()=>{handleDecrease(amount, fun)}}>
+            {/* <span className="handlers" onClick={fun2}> */}
 
                 <FontAwesomeIcon icon={faMinus} size='lg' />
             </span>

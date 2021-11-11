@@ -22,9 +22,17 @@ export const StateProvider = ({children}) => {
 
     const [focus, setFocus] = useState(false);
 
+    const [destSelect, setDestSelect] = useState(false);
+
     const [price, setPrice] = useState("$0");
 
     const [idPurch, setIdPurch] = useState(0);
+
+    const [counterStatus, setCounterStatus] = useState(false);
+
+    const [test, setTest] = useState(true);
+    console.log(test);
+    console.log(focus);
 
     // let identifier = 0;
 
@@ -47,6 +55,7 @@ export const StateProvider = ({children}) => {
     }
     function capDesVal(e) {
         setDestiny(e.target.value)
+        setDestSelect(true)
     }
 
     function handleOptsDest(){
@@ -64,7 +73,7 @@ export const StateProvider = ({children}) => {
         // let temp1 = idPurch;
         // temp1++;
         // setIdPurch(temp1);
-        setFocus(false);
+        
         
         let newPurchase = {
             // id: temp1,
@@ -88,21 +97,24 @@ export const StateProvider = ({children}) => {
         setOptsDest([]);
         setOrigin("");
         setUserAmount(1);
+        setDestSelect(false);
+        setFocus(false);
+        setCounterStatus(true);
     }
 
-    function handleIncrease() {
-        if(userAmount <= 4){
-            setUserAmount(userAmount + 1);
+    function handleIncrease(a,func) {
+        if(a <= 4){
+            func(a + 1);
         }
-        else if (userAmount === 5){
+        else if (a === 5){
             alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
         }
     }
-    function handleDecrease() {
-        if(userAmount > 1){
-            setUserAmount(userAmount - 1);
+    function handleDecrease(b,func) {
+        if(b > 1){
+            func(b - 1);
         }
-        else if(userAmount === 1){
+        else if(b === 1){
             alert("Ups, no podes seleccionar menos de 1 pasajero !");
         }
     }
@@ -115,6 +127,7 @@ export const StateProvider = ({children}) => {
 
     function handleFlightOpts() {
         setOfferOpts(optsDest[destiny - 1].offer);
+        // setFocus(false)
     }
 
     function handleFocuStatus() {
@@ -142,6 +155,10 @@ export const StateProvider = ({children}) => {
     function calculatePurchAmount(db) {
         return db.price * db.userAmount
     }
+    function handleReset() {
+        setFocus(false);
+        setDestSelect(false);
+    }
     
 
     return(
@@ -156,6 +173,7 @@ export const StateProvider = ({children}) => {
                 price,
                 focus,
                 idPurch,
+                destSelect,
                 purchaseFactory,
                 capOriVal,
                 handleOptsDest,
@@ -168,6 +186,14 @@ export const StateProvider = ({children}) => {
                 handleFocuStatus,
                 setIdPurch,
                 calculatePurchAmount,
+                setFocus,
+                setTest,
+                test,
+                handleReset,
+                setDestSelect,
+                counterStatus,
+                setCounterStatus,
+                setUserAmount
                 
             }
         }>

@@ -7,6 +7,7 @@ import { StateContext } from '../StateContext'
 import './itemCart.css'
 
 /*** Components ****/
+// import PurchCounters from './PurchCounters'
 import Counter from './Counter'
 
 function ItemCart({data}) {
@@ -54,7 +55,9 @@ function ItemCart({data}) {
             </div>
             <div className="btnContainer--ItemCart">
                 <button className="generalBtn" onClick={removeItemCart}>Eliminar</button>       
-                <Counter/>
+                <Counter
+                    goods={data}
+                />
             </div>
         </div>
     )

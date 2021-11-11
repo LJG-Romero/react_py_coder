@@ -12,12 +12,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlane } from '@fortawesome/free-solid-svg-icons';
 
 function Header(){
-    const {purchaseContainer} = useContext(StateContext);
+    const {purchaseContainer,setFocus,setDestSelect} = useContext(StateContext);
 
     return(
         <div className="header">
             <Link to="/" className="detail">
-                <div className="header__Logo">
+                <div className="header__Logo" onClick={ () => {setFocus(false); setDestSelect(false)} }>
                     <h1 className="logo">Proyect Brand</h1>
                 </div>
             </Link>
@@ -27,7 +27,7 @@ function Header(){
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Destinos</a></li>
                     <li><a href="#">Contacto</a></li> */}
-                    <Link to="/" className="li">Home</Link>
+                    <Link to="/" className="li" onClick={ () => {setFocus(false); setDestSelect(false)} }>Home</Link>
                     <Link to="/Nosotros" className="li">Nosotros</Link>
                     <Link to="/Destinos" className="li">Destinos</Link>
                     <Link to="/Contacto" className="li">Contacto</Link>
