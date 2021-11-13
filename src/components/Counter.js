@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 
 /*** Context ****/
 import { StateContext } from "../StateContext";
@@ -12,78 +12,117 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 
-function Counter({goods}) {
+function Counter({goods, updaterKey}) {
 
-    const {userAmount, handleIncrease, handleDecrease, counterStatus, setUserAmount} = useContext(StateContext);
-    const [purchAmount, setPurchAmount] = useState(0);
-    let amount = 0;
-    let fun = null;
-    if (counterStatus){
-        setPurchAmount(goods.userAmount);
-        fun = setPurchAmount;
-        amount = purchAmount;
+    const {userAmount, counterStatus, setUserAmount,price,purchaseContainer,setPurchaseContainer, updatePurch} = useContext(StateContext);
+
+    const [purchAmount, setPurchAmount] = useState(goods.userAmount);
+
+    // const [purchAmount, setPurchAmount] = useState(counterStatus? goods.userAmount : 1);
+
+    console.log(userAmount)
+    console.log(purchAmount)
+
+    function handleIncrease() {
+        if (counterStatus) {
+            if(purchAmount <= 4){
+                setPurchAmount(purchAmount + 1);
+                console.log(purchAmount)
+                let aux = purchAmount + 1;
+                updatePurch(goods,aux);
+                updaterKey();
+            }
+            else if (purchAmount === 5){
+                alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
+            }
+        }
+        else{
+            if(userAmount <= 4){
+                setUserAmount(userAmount + 1);
+                console.log(userAmount)
+            }
+            else if (userAmount === 5){
+                alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
+            }
+        }
+        // if (counterStatus) {
+        //     let temp = goods.userAmount;
+        //     setPurchAmount(temp);
+        // }
+        // if(purchAmount <= 4){
+        //     setPurchAmount(purchAmount + 1);
+        //     console.log(purchAmount)
+        //     setUserAmount(purchAmount);
+        //     console.log(userAmount)
+        // }
+        // else if (purchAmount === 5){
+        //     alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
+        // }
+        
     }
-    else{
-        fun = setUserAmount
-        amount = userAmount
+    function handleDecrease() {
+        if (counterStatus) {
+            if(purchAmount > 1){
+                setPurchAmount(purchAmount - 1);
+                console.log(purchAmount)
+                let aux = purchAmount - 1;
+                updatePurch(goods,aux);
+                updaterKey();
+            }
+            else if (purchAmount === 1){
+                alert("Ups, no podes seleccionar menos de 1 pasajero !");            }
+        }
+        else{
+            if(userAmount > 1){
+                setUserAmount(userAmount - 1);
+                console.log(userAmount)
+            }
+            else if (userAmount === 1){
+                alert("Ups, no podes seleccionar menos de 1 pasajero !");            }
+        }
+        // if (counterStatus) {
+        //     let temp = goods.userAmount;
+        //     setPurchAmount(temp);
+        // }
+        // if(purchAmount > 1){
+        //     setPurchAmount(purchAmount - 1);
+        //     setUserAmount(purchAmount);
+        // }
+        // else if(purchAmount === 1){
+        //     alert("Ups, no podes seleccionar menos de 1 pasajero !");
+        // }
     }
-    console.log(amount);
-    console.log(fun);
 
-    // function handleIncrease(a,func) {
-    //     if(a <= 4){
-    //         func(a + 1);
-    //     }
-    //     else if (a === 5){
-    //         alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
-    //     }
-    // }
-    // function handleDecrease(b,func) {
-    //     if(b > 1){
-    //         func(b - 1);
-    //     }
-    //     else if(b === 1){
-    //         alert("Ups, no podes seleccionar menos de 1 pasajero !");
-    //     }
+    // function handleAmount() {
+    //     setUserAmount(purchAmount)
     // }
 
-
-    /* State manager - Counter Value */
-    // const [userAmount, setUserAmount] = useState(1);
-
-    // function handleIncrease() {
-    //     if(userAmount <= 4){
-    //         setUserAmount(userAmount + 1);
-    //     }
-    //     else if (userAmount === 5){
-    //         alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
-    //     }
+    // const [purchAmount, setPurchAmount] = useState(0);
+    // let amount = 0;
+    // let fun = null;
+    // if (counterStatus){
+    //     setPurchAmount(goods.userAmount);
+    //     fun = setPurchAmount;
+    //     amount = purchAmount;
     // }
-    // function handleDecrease() {
-    //     if(userAmount > 1){
-    //         setUserAmount(userAmount - 1);
-    //     }
-    //     else if(userAmount === 1){
-    //         alert("Ups, no podes seleccionar menos de 1 pasajero !");
-    //     }
+    // else{
+    //     fun = setUserAmount
+    //     amount = userAmount
     // }
-
-
+    // console.log(amount);
+    // console.log(fun);
 
     return (
         <div className="travelSeeker__Handlers">
             <p className="countersLabel">Adultos:</p>
-            <span className="handlers" onClick={()=>{handleIncrease(amount, fun)}}>
-            {/* <span className="handlers" onClick={fun1}> */}
 
+            <span className="handlers" onClick={handleIncrease}>
                 <FontAwesomeIcon icon={faPlus} size='lg' />
             </span>
-            <p className="countersAmount">{amount}</p>
-            {/* <p className="countersAmount">{state}</p> */}
 
-            <span className="handlers" onClick={()=>{handleDecrease(amount, fun)}}>
-            {/* <span className="handlers" onClick={fun2}> */}
+            <p className="countersAmount">{counterStatus? purchAmount : userAmount}</p>
 
+            <span className="handlers" onClick={handleDecrease}>
                 <FontAwesomeIcon icon={faMinus} size='lg' />
             </span>
         </div>
@@ -91,3 +130,5 @@ function Counter({goods}) {
 }
 
 export default Counter
+
+{/* <span className="handlers" onClick={ () => { handleIncrease(); handleAmount();}}> */}

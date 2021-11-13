@@ -11,7 +11,8 @@ import './purchFlightSelec.css'
 import ItemFlight from '../components/ItemFlight';
 
 function PurchFlightSelec() {
-    const {offerOpts, destiny, optsDest,focus,purchaseFactory} = useContext(StateContext);
+    const {offerOpts, destiny, optsDest,focus,purchaseFactory,userAmount} = useContext(StateContext);
+    console.log(userAmount)
 
     return (
         <div className="purchFlightSelec">

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useState, useContext} from 'react'
 
 /*** Context ****/
 import { StateContext } from '../StateContext'
@@ -12,6 +12,11 @@ import Counter from './Counter'
 
 function ItemCart({data}) {
     const {calculatePurchAmount,setIdPurch,idPurch,purchaseContainer} = useContext(StateContext)
+    const [updater, setUpdater] = useState(false);
+
+    function handleUpdater() {
+        setUpdater(!updater);
+    }
 
     // console.log(data)
     // let a = data.id
@@ -56,7 +61,7 @@ function ItemCart({data}) {
             <div className="btnContainer--ItemCart">
                 <button className="generalBtn" onClick={removeItemCart}>Eliminar</button>       
                 <Counter
-                    goods={data}
+                    goods={data} updaterKey={handleUpdater}
                 />
             </div>
         </div>

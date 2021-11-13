@@ -102,22 +102,22 @@ export const StateProvider = ({children}) => {
         setCounterStatus(true);
     }
 
-    function handleIncrease(a,func) {
-        if(a <= 4){
-            func(a + 1);
-        }
-        else if (a === 5){
-            alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
-        }
-    }
-    function handleDecrease(b,func) {
-        if(b > 1){
-            func(b - 1);
-        }
-        else if(b === 1){
-            alert("Ups, no podes seleccionar menos de 1 pasajero !");
-        }
-    }
+    // function handleIncrease() {
+    //     if(userAmount <= 4){
+    //         setUserAmount(userAmount + 1);
+    //     }
+    //     else if (userAmount === 5){
+    //         alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
+    //     }
+    // }
+    // function handleDecrease() {
+    //     if(userAmount > 1){
+    //         setUserAmount(userAmount - 1);
+    //     }
+    //     else if(userAmount === 1){
+    //         alert("Ups, no podes seleccionar menos de 1 pasajero !");
+    //     }
+    // }
 
     function handlePurchaseContainer() {
         setPurchaseContainer([]);
@@ -159,6 +159,18 @@ export const StateProvider = ({children}) => {
         setFocus(false);
         setDestSelect(false);
     }
+
+    function updatePurch(obj,a) {
+        let idx = purchaseContainer.indexOf(obj);
+        console.log(idx);
+        let temp = purchaseContainer;
+        temp[idx].price = price * a;
+        temp[idx].userAmount = a;
+        console.log(temp[idx]);
+        console.log(temp);
+        setPurchaseContainer(temp);
+        
+    }
     
 
     return(
@@ -178,8 +190,8 @@ export const StateProvider = ({children}) => {
                 capOriVal,
                 handleOptsDest,
                 capDesVal,
-                handleIncrease,
-                handleDecrease,
+                // handleIncrease,
+                // handleDecrease,
                 handlePurchaseContainer,
                 handleFlightOpts,
                 handlePrice,
@@ -193,7 +205,9 @@ export const StateProvider = ({children}) => {
                 setDestSelect,
                 counterStatus,
                 setCounterStatus,
-                setUserAmount
+                setUserAmount,
+                setPurchaseContainer,
+                updatePurch
                 
             }
         }>
