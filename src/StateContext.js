@@ -1,4 +1,9 @@
+/*** React ****/
 import React, {useState, createContext, useEffect} from 'react';
+
+/*** Firebase ****/
+import { collection, getDocs } from "firebase/firestore"
+import {db} from "./firebase/firebaseConfig"
 
 export const StateContext = createContext();
 
@@ -36,11 +41,28 @@ export const StateProvider = ({children}) => {
 
     // let identifier = 0;
 
+    // useEffect( () => {
+    //     fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
+    //     .then( (response) => response.json() )
+    //     .then( (data) => setOptsOrig(data) )
+    // },[]);
+
     useEffect( () => {
-        fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
-        .then( (response) => response.json() )
-        .then( (data) => setOptsOrig(data) )
-    },[]);
+
+        const dataPetition = async () => {
+            const temp = [];
+            const query = collection(db, 'destinationsList');
+            const response = await getDocs(query);
+            response.forEach( (dest) => {
+                temp.push(dest.data());
+            } )
+            // let temp = response.data();
+            console.log(temp);
+            setOptsOrig(temp);
+        }
+        dataPetition();
+
+    },[] )
 
     function capOriVal(e) {
         // let temp = e.target.value;

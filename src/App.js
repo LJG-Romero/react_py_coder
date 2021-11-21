@@ -1,4 +1,4 @@
-// import { render } from "@testing-library/react";         ***** Chequear funcionalidad
+/*** React ****/
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -15,13 +15,13 @@ import Cover from './components/CoverPage.js';
 // import ListCards from "./components/ListCards";
 
 /*** Views ****/
-import Home from "./Views/Home";
-import Us from "./Views/Us";
-import Cities from "./Views/Cities";
-import Contact from "./Views/Contact";
-import CitiesDitail from "./Views/CitiesDitail";
-import FlightCart from "./Views/FlightCart";
-import PurchFlightSelec from "./Views/PurchFlightSelec";
+import Home from "./views/Home";
+import Us from "./views/Us";
+import Cities from "./views/Cities";
+import Contact from "./views/Contact";
+import CitiesDitail from "./views/CitiesDitail";
+import FlightCart from "./views/FlightCart";
+import PurchFlightSelec from "./views/PurchFlightSelec";
 
 
 function App() {
