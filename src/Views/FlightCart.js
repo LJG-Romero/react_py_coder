@@ -12,8 +12,9 @@ import ItemCart from "../components/ItemCart";
 
 function FlightCart() {
 
-    const {purchaseContainer, handlePurchaseContainer, setCounterStatus, setUserAmount, totalPrice} = useContext(StateContext);
+    const {purchaseContainer, handlePurchaseContainer, setCounterStatus, setUserAmount, totalPrice, calculatePurchAmount} = useContext(StateContext);
     console.log(purchaseContainer);
+    calculatePurchAmount();
 
     if (purchaseContainer.length > 0){
         purchaseContainer.sort( function(a,b){
@@ -54,8 +55,8 @@ function FlightCart() {
                             </div>
                         </div>
                         <div className="flightPayForm__Container total">
-                            <h3>Total</h3>
-                            <p>$ <strong>{totalPrice}</strong></p>
+                            <h3>Precio Total</h3>
+                            <p>$<strong>{totalPrice}</strong></p>
 
                         </div>
                         

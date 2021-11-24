@@ -11,8 +11,7 @@ import './purchFlightSelec.css'
 import ItemFlight from '../components/ItemFlight';
 
 function PurchFlightSelec() {
-    const {offerOpts, destiny, optsDest,focus,purchaseFactory,userAmount} = useContext(StateContext);
-    console.log(userAmount)
+    const {offerOpts, destiny, optsDest,focus,purchaseFactory} = useContext(StateContext);
 
     return (
         <div className="purchFlightSelec">
@@ -38,6 +37,7 @@ function PurchFlightSelec() {
             </div>
             <Link to="/CarritoDeVuelos">
                 <button className={focus?"book":"disabled"} disabled={!focus} onClick={purchaseFactory}>Continuar</button>
+                {/* onClick={() => {purchaseFactory();calculatePurchAmount()}} */}
             </Link>
         </div>
     )

@@ -95,7 +95,8 @@ export const StateProvider = ({children}) => {
         setDestSelect(false);
         setFocus(false);
         setCounterStatus(true);
-        setTotalPrice(price)
+        // setTotalPrice(price)
+        // calculatePurchAmount();
     }
 
     function handlePurchaseContainer() {
@@ -118,8 +119,10 @@ export const StateProvider = ({children}) => {
     }
     
     function calculatePurchAmount() {
+        console.log(purchaseContainer);
+        console.log("Ejecuta")
+        let temp = 0;
         purchaseContainer.map ( (purch) => {
-            let temp = 0;
             temp = temp + purch.price;
             setTotalPrice(temp);
             

@@ -22,15 +22,14 @@ function Confirm() {
             <div className="flightPay--Container">
 
                 <div className="flightPayForm__Container">
-                <h3>ID Reserva</h3>
-                <p><strong>{idConfirm}</strong></p>
-                {/* <p>Próximamente recibirá un correo con los datos de su reserva.</p> */}
-                <h3>Gracias por volar con nosotros !</h3>
+                    <h3>ID Reserva</h3>
+                    <p><strong>{idConfirm}</strong></p>
+                    {/* <p>Próximamente recibirá un correo con los datos de su reserva.</p> */}
+                    <h3>Gracias por volar con nosotros !</h3>
 
-                <Link to={"/"} onClick={ () => {setCounterStatus(false); setUserAmount(1)} }>
-                    <button className="generalBtn">Home</button>
-                </Link>
-
+                    <Link to={"/"} onClick={ () => {setCounterStatus(false); setUserAmount(1)} }>
+                        <button className="generalBtn">Home</button>
+                    </Link>
                 </div>
 
                 
