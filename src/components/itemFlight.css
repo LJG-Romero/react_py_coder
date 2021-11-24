@@ -30,17 +30,14 @@
 .itemFlight__Date{
     font-size: 30px;
     text-align: center;
-    /* color: var(--secondaryPage); */
 }
 .itemFlight__Price{
     font-size: 15px;
     text-align: center;
-    /* color: var(--secondaryPage); */
 
 }
 .itemFlight__Seats{
     font-size: 10px;
     text-align: center;
-    /* color: var(--secondaryPage); */
 
 }

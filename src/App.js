@@ -10,9 +10,6 @@ import './styles.css';
 
 /*** Components ****/
 import Header from './components/Header.js';
-import Cover from './components/CoverPage.js';
-// import TravelSeeker from "./components/TravelSeeker";
-// import ListCards from "./components/ListCards";
 
 /*** Views ****/
 import Home from "./views/Home";
@@ -22,6 +19,9 @@ import Contact from "./views/Contact";
 import CitiesDitail from "./views/CitiesDitail";
 import FlightCart from "./views/FlightCart";
 import PurchFlightSelec from "./views/PurchFlightSelec";
+import FlightPax from "./views/FlightPax";
+import FlightPayment from "./views/FlightPayment";
+import Confirm from "./views/Confirm";
 
 
 function App() {
@@ -39,22 +39,13 @@ function App() {
           <Route path="/Detalle/:id" component={CitiesDitail} />
           <Route path="/SelecciónDeVuelos" component={PurchFlightSelec} />
           <Route path="/CarritoDeVuelos" component={FlightCart} />
+          <Route path="/Pasajeros" component={FlightPax}/>
+          <Route path="/Pago" component={FlightPayment} />
+          <Route path="/ConfirmacionPago" component={Confirm} />
+
 
         </Switch>
     
-        {/* <div className="mainApp">
-
-          <TravelSeeker
-            title = "Viajamos?"
-            origin = "Origen"
-            destiny = "Destino"
-          />
-
-          <ListCards
-            title = "Destinos"
-          />
-
-        </div> */}
       </Router>
     </StateProvider>
   );
@@ -62,37 +53,3 @@ function App() {
 
 
 export default App;
-
-/*                     Modelo de Componente de Clase 
-class App extends React.Component {
-  render(){
-    return (
-      <div className="App">
-        <h1>Coder React Proyect - Lucas Romero</h1>
-        <div className="groupInfo">
-          <p><strong>Docente: </strong>Di Salvo, Daniel</p>
-          <p><strong>Tutora: </strong>Nakaganeku, Ailín</p>
-          <p><strong>Alumno: </strong>Romero, Lucas José Gabriel</p>
-          <p><strong>Camada: </strong>RJ-19740</p>
-        </div>
-      </div>
-    );
-  }
-}
-*/
-
-/*                    Modelo de Componente Funcional
-  function App() {
-  return (
-    <div className="App">
-      <h1>Coder React Proyect - Lucas Romero</h1>
-      <div className="groupInfo">
-        <p><strong>Docente: </strong>Di Salvo, Daniel</p>
-        <p><strong>Tutora: </strong>Nakaganeku, Ailín</p>
-        <p><strong>Alumno: </strong>Romero, Lucas José Gabriel</p>
-        <p><strong>Camada: </strong>RJ-19740</p>
-      </div>
-    </div>
-  );
-}
-*/

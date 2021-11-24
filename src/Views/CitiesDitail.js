@@ -25,7 +25,7 @@ function CitiesDitail({match}) {
                 <ItemCard data={destDitail}/>
             </div>
             <div className="provisory">
-                <p>En Construcción</p>
+                <p>Próximamente</p>
                 <div className="provisoryStyle__Img">
                     <img src={img} alt="En Construcción" />
                 </div>

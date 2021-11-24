@@ -12,7 +12,6 @@ import Counter from "./Counter";
 
 function TravelSeeker({title}){
     const {
-            // purchaseFactory,
             capOriVal,
             handleOptsDest,
             capDesVal,
@@ -22,15 +21,6 @@ function TravelSeeker({title}){
             focus,
             destSelect
         } = useContext(StateContext);
-
-    // class Purchase{
-    //     constructor(id,ori,des,pax){
-    //         this.id = id;
-    //         this.ori = ori;
-    //         this.des = des;
-    //         this.pax = pax;
-    //     }
-    // }
     
     return(
         <div className="mainApp__TravelSeeker">
@@ -61,25 +51,10 @@ function TravelSeeker({title}){
 
                 <Counter
                     goods={{}}
-                    // state={userAmount}
-                    // fun1={handleIncrease}
-                    // fun2={handleDecrease}
                 />
-
-                {/* <div className="travelSeeker__Handlers">
-                    <p className="countersLabel">Adultos:</p>
-                    <span className="handlers" onClick={handleIncrease}>
-                        <FontAwesomeIcon icon={faPlus} size='lg' />
-                    </span>
-                    <p className="countersAmount">{userAmount}</p>
-                    <span className="handlers" onClick={handleDecrease}>
-                        <FontAwesomeIcon icon={faMinus} size='lg' />
-                    </span>
-                </div> */}
 
                 <Link to="/SelecciónDeVuelos" className="detail">
                     <button className={destSelect? "book" : "disabled"} onClick={handleFlightOpts} disabled={!destSelect}>Buscar</button>
-                    {/* <button className="book" onClick={purchaseFactory}>Buscar</button> */}
                 </Link>
 
             </div>

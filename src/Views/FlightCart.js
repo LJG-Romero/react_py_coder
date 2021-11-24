@@ -14,12 +14,6 @@ function FlightCart() {
 
     const {purchaseContainer, handlePurchaseContainer,test, setCounterStatus, setUserAmount} = useContext(StateContext);
     console.log(purchaseContainer);
-    console.log(test)
-
-    // function handlePurchaseContainer() {
-    //     setPurchaseContainer([]);
-    //     console.log(purchaseContainer);
-    // }
 
     if (purchaseContainer.length > 0){
         purchaseContainer.sort( function(a,b){
@@ -37,7 +31,7 @@ function FlightCart() {
                         <div className="btnContainer">
                             <p className="flightCart__P">Ganas de viajar?</p>
                             <Link to={"/"} className="detail">
-                                <button className="generalBtn" >Iniciar reserva</button>
+                                <button className="generalBtn" onClick={ () => {setCounterStatus(false); setUserAmount(1)} } >Iniciar reserva</button>
                             </Link>
                         </div>
                     </div>
@@ -53,8 +47,8 @@ function FlightCart() {
                             <Link to={"/"} className="detail">
                                 <button className="generalBtn" onClick={ () => {setCounterStatus(false); setUserAmount(1)} } >Nueva reserva</button>
                             </Link>
-                            <Link to={"/"} className="detail">
-                                <button className="generalBtn" onClick={ () => {setCounterStatus(false);setUserAmount(1)} }>Finalizar compra</button>
+                            <Link to={"/Pasajeros"} className="detail">
+                                <button className="generalBtn" >Finalizar compra</button>
                             </Link>
                         </div>
                     </div>
@@ -64,11 +58,3 @@ function FlightCart() {
 }
 
 export default FlightCart
-
-{/* <div className="provisoryStyle">
-    <h1>Carrito de Vuelo</h1>
-    <p>En Construcción</p>
-    <div className="provisoryStyle__Img">
-        <img src={img} alt="En Construcción" />
-    </div>
-</div> */}

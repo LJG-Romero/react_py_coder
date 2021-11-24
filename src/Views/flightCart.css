@@ -26,8 +26,6 @@
 .generalBtn{
     height: 30px;
     width: 150px;
-    /* margin-left: 10px; */
-    /* margin: 10px; */
     border: 1px solid transparent;
     box-shadow: 1px 1px 3px var(--backHeader);
     border-radius: 10px;

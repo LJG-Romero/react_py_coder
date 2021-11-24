@@ -23,10 +23,6 @@ function Header(){
             </Link>
             <nav className="header__Nav">
                 <ul className="nav__Links">
-                    {/* <li><a href="#">Home</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Destinos</a></li>
-                    <li><a href="#">Contacto</a></li> */}
                     <Link to="/" className="li" onClick={ () => {setFocus(false); setDestSelect(false);setCounterStatus(false); setUserAmount(1)} }>Home</Link>
                     <Link to="/Nosotros" className="li">Nosotros</Link>
                     <Link to="/Destinos" className="li">Destinos</Link>
@@ -37,9 +33,6 @@ function Header(){
                     <Link to="/CarritoDeVuelos" className="detail">
                         <FontAwesomeIcon icon={faPlane} size='lg' onClick={ () => setCounterStatus(true) } />
                     </Link>
-                    {/* <div className="nav__Cart__Count">
-                        <p>0</p>
-                    </div> */}
                 </ul>
                 <div className="nav__Count">
                     <p>{purchaseContainer.length}</p>

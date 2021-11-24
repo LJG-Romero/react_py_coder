@@ -5,7 +5,7 @@ function Contact() {
     return (
         <div className="provisoryStyle">
             <h1>Contacto</h1>
-            <p>En Construcción</p>
+            <p>Próximamente</p>
             <div className="provisoryStyle__Img">
                 <img src={img} alt="En Construcción" />
             </div>

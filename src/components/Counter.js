@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, {useState, useContext} from "react";
 
 /*** Context ****/
 import { StateContext } from "../StateContext";
@@ -45,20 +45,6 @@ function Counter({goods, updaterKey}) {
                 alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
             }
         }
-        // if (counterStatus) {
-        //     let temp = goods.userAmount;
-        //     setPurchAmount(temp);
-        // }
-        // if(purchAmount <= 4){
-        //     setPurchAmount(purchAmount + 1);
-        //     console.log(purchAmount)
-        //     setUserAmount(purchAmount);
-        //     console.log(userAmount)
-        // }
-        // else if (purchAmount === 5){
-        //     alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
-        // }
-        
     }
     function handleDecrease() {
         if (counterStatus) {
@@ -80,37 +66,7 @@ function Counter({goods, updaterKey}) {
             else if (userAmount === 1){
                 alert("Ups, no podes seleccionar menos de 1 pasajero !");            }
         }
-        // if (counterStatus) {
-        //     let temp = goods.userAmount;
-        //     setPurchAmount(temp);
-        // }
-        // if(purchAmount > 1){
-        //     setPurchAmount(purchAmount - 1);
-        //     setUserAmount(purchAmount);
-        // }
-        // else if(purchAmount === 1){
-        //     alert("Ups, no podes seleccionar menos de 1 pasajero !");
-        // }
     }
-
-    // function handleAmount() {
-    //     setUserAmount(purchAmount)
-    // }
-
-    // const [purchAmount, setPurchAmount] = useState(0);
-    // let amount = 0;
-    // let fun = null;
-    // if (counterStatus){
-    //     setPurchAmount(goods.userAmount);
-    //     fun = setPurchAmount;
-    //     amount = purchAmount;
-    // }
-    // else{
-    //     fun = setUserAmount
-    //     amount = userAmount
-    // }
-    // console.log(amount);
-    // console.log(fun);
 
     return (
         <div className="travelSeeker__Handlers">
@@ -130,5 +86,3 @@ function Counter({goods, updaterKey}) {
 }
 
 export default Counter
-
-{/* <span className="handlers" onClick={ () => { handleIncrease(); handleAmount();}}> */}

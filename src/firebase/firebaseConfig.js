@@ -1,9 +1,9 @@
-
+/*** Firebase ****/
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDU4DNsX9s0I7LiadNyJDhJr7MSX-7Ph9U",
   authDomain: "fir-react-py-coder.firebaseapp.com",

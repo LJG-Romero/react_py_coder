@@ -1,5 +1,4 @@
 .purchFlightSelec{
-    /* width: 80vw; */
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -8,9 +7,7 @@
     border: 1px solid var(--primaryModel);
 }
 .purchFlightSelec h3{
-    color: var(--primaryPage);
     font-size: 30px;
-    margin: 15px;
 }
 .purchFlightSelec__Dates{
     width: 800px;

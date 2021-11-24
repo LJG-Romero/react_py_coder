@@ -7,32 +7,17 @@ import { StateContext } from "../StateContext";
 /*** Styles ****/
 import './listCards.css'
 
-/*** Assets - Img ****/
-// import img from '../assets/Rcu1.jpeg';
-// import img2 from '../assets/Vmr2.jpeg';
-// import img3 from '../assets/Vdr1.jpeg';
-
 /*** Components ****/
 import ItemCard from "./ItemCard";
 
 function ListCards({title}){
-  // const [destList, setDestList] = useState([]);
   const {optsOrig} = useContext(StateContext);
-  // console.log(destList)
-
-  // useEffect( () => {
-  //     fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
-  //       .then((response) => response.json())
-  //       .then((data) => setDestList(data));
-  //   },[])
-
 
     return(
         <div className="mainApp__ListCards">
             <h1>{title}</h1>
             <div className="listCards">
               {
-                // destList.map( (dest) => { 
                 optsOrig.map( (dest) => {
                   return(
                     <Link to={`/Detalle/${dest.id}`} className="detail" key={dest.id}>
@@ -40,24 +25,6 @@ function ListCards({title}){
                     </Link>
                   )} )
               }
-              {/* <ItemCard
-                img = {img}
-                name = "Rio Cuarto"
-                time = "00:45"
-                acft = "Atr 72-600"
-              />
-              <ItemCard 
-                img = {img2}
-                name = "Villa María"
-                time = "00:40"
-                acft = "Atr 72-600"
-              />
-              <ItemCard 
-                img = {img3}
-                name = "Villa Dolores"
-                time = "00:35"
-                acft = "Atr 72-600"
-              /> */}
             </div>
         </div>
     );

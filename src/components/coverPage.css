@@ -1,9 +1,6 @@
-h1, p{
-    color: tan;
-    /* border: 1px solid red; */
-    border: 1px solid var(--tertiaryModel);
-    font-size: 40px;
-}
+/* h1, p{
+    border: 1px solid red;
+  } */
   
 .cover {
   height: 300px;

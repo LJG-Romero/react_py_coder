@@ -22,26 +22,20 @@
 .itemCard__Img img{
     height: 100%;
     width: 100%;
-    /* border-radius: 10px; */
     border-radius: 50px 20px 20px 20px;
     
     transition: 0.5s;
     transition-timing-function: ease-in-out;
 
-    /* opacity: 0.8; */
 }
 .itemCard__Img img:hover{
-    /* opacity: 1; */
     transform: scale(1.2,1.2);
     transition: 0.5s;
     transition-timing-function: ease-in-out;
-
-
 }
 
 .itemCard__Parag{
     height: 80px;
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,9 +45,10 @@
 .itemCard__Parag h3{
     /* position: absolute;
     z-index: 1; */
-    color: var(--primaryPage);
+    /* color: var(--primaryPage); */
     border: 1px solid var(--tertiaryModel);
-    font-size: 25px;
+    margin: 10px;
+    /* font-size: 25px; */
 }
 .mainParag{
     color: var(--secondaryPage);

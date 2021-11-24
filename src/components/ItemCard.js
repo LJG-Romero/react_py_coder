@@ -8,7 +8,6 @@ function ItemCard({data}){
         <div className="itemCard">
             <div className="itemCard__Img">
                 <img src={data.img} alt={`Img ${data.name}`} />
-                {/* <h3>{props.name}</h3> */}
             </div>
             <div className="itemCard__Parag">
                 <h3>{data.name}</h3>

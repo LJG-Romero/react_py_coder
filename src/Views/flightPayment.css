@@ -1,0 +1,79 @@
+.flightPay{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--primaryModel);
+}
+.flightPay h1{
+    text-align: center;
+}
+.flightPay--Container{
+    /* height: 550px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border: 1px solid var(--secondaryModel);
+}
+.flightPayForm{
+    /* height: 550px; */
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    border: 1px solid var(--tertiaryModel);
+}
+.flightPayForm__Container{
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5px 0px;
+    box-shadow: 0px 0px 3px var(--secondaryPage);
+    border-radius: 20px;
+    padding-bottom: 5px;
+
+}
+.flightPayForm__Container--Scrty{
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.scrty__Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flightPayImg{
+    width: 750px;
+    height: 450px;
+    border: 1px solid var(--tertiaryModel);
+
+}
+.flightPayImg img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+
+}
+.flightPay__Input::placeholder, .flightPay select{
+    font-size: 15px;
+    opacity: 0.7;
+}
+.flightPay__Input:invalid{
+    color: red;
+    opacity: 0.7;
+}
+.flightPay label{
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: var(--backHeader);
+
+}

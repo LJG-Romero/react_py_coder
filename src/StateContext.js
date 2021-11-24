@@ -9,7 +9,7 @@ export const StateContext = createContext();
 
 /* Provider model with arrow function */
 export const StateProvider = ({children}) => {
-    /* State manager - Array purchases */
+    /* State manager - Array Purchases */
     const [purchaseContainer, setPurchaseContainer] = useState([]);
     
     /* State manager - Select Values */
@@ -20,32 +20,28 @@ export const StateProvider = ({children}) => {
     const [optsOrig, setOptsOrig] = useState([]);
     const [optsDest, setOptsDest] = useState([]);
 
-    /* State manager - Counter Value */
+    /* State manager - Counter Manager */
     const [userAmount, setUserAmount] = useState(1);
-
-    const [offerOpts, setOfferOpts] = useState([]);
-
-    const [focus, setFocus] = useState(false);
-
-    const [destSelect, setDestSelect] = useState(false);
-
-    const [price, setPrice] = useState("$0");
-
-    const [idPurch, setIdPurch] = useState(0);
-
     const [counterStatus, setCounterStatus] = useState(false);
 
+    /* State manager - Offer List */
+    const [offerOpts, setOfferOpts] = useState([]);
+
+    /* State manager - Flight Select Manager */
+    const [focus, setFocus] = useState(false);
+    const [destSelect, setDestSelect] = useState(false);
+
+    /* State manager - Purch Factory */
+    const [price, setPrice] = useState("$0");
+    const [idPurch, setIdPurch] = useState(0);
+
+    /* State manager - Id Confirm */
+    const [idConfirm, setIdConfirm] = useState("")
+
+    /* State Test */
     const [test, setTest] = useState(true);
     console.log(test);
     console.log(focus);
-
-    // let identifier = 0;
-
-    // useEffect( () => {
-    //     fetch("https://my-json-server.typicode.com/LJG-Romero/react_py_DB/destinationsList")
-    //     .then( (response) => response.json() )
-    //     .then( (data) => setOptsOrig(data) )
-    // },[]);
 
     useEffect( () => {
 
@@ -65,14 +61,6 @@ export const StateProvider = ({children}) => {
     },[] )
 
     function capOriVal(e) {
-        // let temp = e.target.value;
-        /*Opt1*/
-        // setOrigin(optsOrig[temp-1].name)
-
-        /*Opt2*/
-        // const temp1 = optsOrig.find(obj => obj.id === temp)
-        // setOrigin(temp1.name)
-
         setOrigin(e.target.value)
     }
     function capDesVal(e) {
@@ -86,23 +74,11 @@ export const StateProvider = ({children}) => {
     }
 
     function purchaseFactory() {
-        // let ref = purchaseContainer.length;
-        // purchaseContainer.push(new Purchase(ref,origin,destiny,userAmount));
-        // setPurchaseContainer(purchaseContainer);   
-        // console.log(purchaseContainer)
-        // identifier ++;
-
-        // let temp1 = idPurch;
-        // temp1++;
-        // setIdPurch(temp1);
-        
         
         let newPurchase = {
-            // id: temp1,
             id: idPurch,
             origin: optsOrig[origin - 1].name,
             destiny: optsDest[destiny - 1].name,
-            // price: price,
             price: price * userAmount,
             userAmount: userAmount
         }
@@ -113,9 +89,6 @@ export const StateProvider = ({children}) => {
         setPurchaseContainer(newPurchaseContainer);
         console.log(purchaseContainer)
         
-        // setPurchaseContainer(purchaseContainer.push(newPurchase))
-        // console.log(newPurchase)
-        // console.log(purchaseContainer)
         setOptsDest([]);
         setOrigin("");
         setUserAmount(1);
@@ -123,23 +96,6 @@ export const StateProvider = ({children}) => {
         setFocus(false);
         setCounterStatus(true);
     }
-
-    // function handleIncrease() {
-    //     if(userAmount <= 4){
-    //         setUserAmount(userAmount + 1);
-    //     }
-    //     else if (userAmount === 5){
-    //         alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
-    //     }
-    // }
-    // function handleDecrease() {
-    //     if(userAmount > 1){
-    //         setUserAmount(userAmount - 1);
-    //     }
-    //     else if(userAmount === 1){
-    //         alert("Ups, no podes seleccionar menos de 1 pasajero !");
-    //     }
-    // }
 
     function handlePurchaseContainer() {
         setPurchaseContainer([]);
@@ -149,29 +105,15 @@ export const StateProvider = ({children}) => {
 
     function handleFlightOpts() {
         setOfferOpts(optsDest[destiny - 1].offer);
-        // setFocus(false)
     }
 
     function handleFocuStatus() {
         setFocus(!focus);
     }
-    // function handleSelectStatus(e) {
-    //     e.target.classList.add("selected");
-
-    //     setSelect(!select);
-    // }
 
     function handlePrice(db) {
-        // if (price === "$0"){
-        //     alert("Vuelo no disponible")
-        // }
-        // else{
-        //     setPrice(db.price)
-        //     console.log(price)
-        // }
         setPrice(db.price)
         console.log(price)
-        // setPrice(e.target.innerHTML);
     }
     
     function calculatePurchAmount(db) {
@@ -212,8 +154,6 @@ export const StateProvider = ({children}) => {
                 capOriVal,
                 handleOptsDest,
                 capDesVal,
-                // handleIncrease,
-                // handleDecrease,
                 handlePurchaseContainer,
                 handleFlightOpts,
                 handlePrice,
@@ -229,33 +169,13 @@ export const StateProvider = ({children}) => {
                 setCounterStatus,
                 setUserAmount,
                 setPurchaseContainer,
-                updatePurch
+                updatePurch,
+                idConfirm,
+                setIdConfirm
                 
             }
         }>
             {children}
         </StateContext.Provider>
     )
-
 }
-/* Provider model with common function */
-// export function StateProvider ({children}){
-
-//     /* State manager - Purchases Container */
-//     const [purchaseContainer, setPurchaseContainer] = useState([]);
-//     console.log(purchaseContainer)
-
-//     /* State manager - Select Values */
-//     const [origin, setOrigin] = useState("");
-//     const [destiny, setDestiny] = useState("");
-//     console.log(origin)
-//     console.log(destiny)
-
-//     return(
-//         <StateContext.Provider value={[purchaseContainer,setPurchaseContainer],[origin,setOrigin],[destiny,setDestiny]} >
-//         {/* <StateContext.Provider value={[purchaseContainer,setPurchaseContainer]} > */}
-
-//             {children}
-//         </StateContext.Provider>
-//     )
-// }
