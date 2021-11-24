@@ -12,7 +12,7 @@ import ItemCart from "../components/ItemCart";
 
 function FlightCart() {
 
-    const {purchaseContainer, handlePurchaseContainer,test, setCounterStatus, setUserAmount} = useContext(StateContext);
+    const {purchaseContainer, handlePurchaseContainer, setCounterStatus, setUserAmount, totalPrice} = useContext(StateContext);
     console.log(purchaseContainer);
 
     if (purchaseContainer.length > 0){
@@ -36,22 +36,31 @@ function FlightCart() {
                         </div>
                     </div>
                     :
-                    <div className="flightCart__Container">
-                        {purchaseContainer.map ( (purch) => {
-                            return(
-                                <ItemCart data={purch} key={purch.origin} />     
-                            )
-                        })}
-                        <div className="btnContainer">
-                            <button className="generalBtn" onClick={handlePurchaseContainer}>Vaciar carrito</button>
-                            <Link to={"/"} className="detail">
-                                <button className="generalBtn" onClick={ () => {setCounterStatus(false); setUserAmount(1)} } >Nueva reserva</button>
-                            </Link>
-                            <Link to={"/Pasajeros"} className="detail">
-                                <button className="generalBtn" >Finalizar compra</button>
-                            </Link>
+                    <div className="flightPay--Container">
+                        <div className="flightCart__Container">
+                            {purchaseContainer.map ( (purch) => {
+                                return(
+                                    <ItemCart data={purch} key={purch.origin} />     
+                                )
+                            })}
+                            <div className="btnContainer">
+                                <button className="generalBtn" onClick={handlePurchaseContainer}>Vaciar carrito</button>
+                                <Link to={"/"} className="detail">
+                                    <button className="generalBtn" onClick={ () => {setCounterStatus(false); setUserAmount(1)} } >Nueva reserva</button>
+                                </Link>
+                                <Link to={"/Pasajeros"} className="detail">
+                                    <button className="generalBtn" >Finalizar compra</button>
+                                </Link>
+                            </div>
                         </div>
+                        <div className="flightPayForm__Container total">
+                            <h3>Total</h3>
+                            <p>$ <strong>{totalPrice}</strong></p>
+
+                        </div>
+                        
                     </div>
+                    
                 }
         </div>
     )

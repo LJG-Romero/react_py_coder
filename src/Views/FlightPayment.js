@@ -17,7 +17,7 @@ import img from '../assets/Pax-Icon.jpeg';
 
 function FlightPayment() {
 
-    const {setIdConfirm, purchaseContainer} = useContext(StateContext);
+    const {setIdConfirm, purchaseContainer,setPurchaseContainer} = useContext(StateContext);
 
     const purchRegister = async () => {
 
@@ -27,7 +27,8 @@ function FlightPayment() {
         });
         console.log(response.id)
         let temp = response.id;
-        setIdConfirm(temp)
+        setIdConfirm(temp);
+        setPurchaseContainer([]);
     }
 
     return (

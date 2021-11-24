@@ -10,7 +10,7 @@ import './itemCart.css'
 import Counter from './Counter'
 
 function ItemCart({data}) {
-    const {calculatePurchAmount,setIdPurch,idPurch,purchaseContainer} = useContext(StateContext)
+    const {setIdPurch,purchaseContainer} = useContext(StateContext)
     const [updater, setUpdater] = useState(false);
 
     function handleUpdater() {

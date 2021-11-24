@@ -31,7 +31,7 @@ function Header(){
                 </ul>
                 <ul className="nav__Cart">
                     <Link to="/CarritoDeVuelos" className="detail">
-                        <FontAwesomeIcon icon={faPlane} size='lg' onClick={ () => setCounterStatus(true) } />
+                        <FontAwesomeIcon icon={faPlane} size='lg' onClick={ () => setCounterStatus(true)} />
                     </Link>
                 </ul>
                 <div className="nav__Count">

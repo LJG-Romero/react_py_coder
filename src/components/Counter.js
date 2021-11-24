@@ -14,14 +14,11 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 function Counter({goods, updaterKey}) {
 
-    const {userAmount, counterStatus, setUserAmount,price,purchaseContainer,setPurchaseContainer, updatePurch} = useContext(StateContext);
+    const {userAmount, counterStatus, setUserAmount, updatePurch, calculatePurchAmount} = useContext(StateContext);
 
     const [purchAmount, setPurchAmount] = useState(goods.userAmount);
 
     // const [purchAmount, setPurchAmount] = useState(counterStatus? goods.userAmount : 1);
-
-    console.log(userAmount)
-    console.log(purchAmount)
 
     function handleIncrease() {
         if (counterStatus) {
@@ -31,6 +28,7 @@ function Counter({goods, updaterKey}) {
                 let aux = purchAmount + 1;
                 updatePurch(goods,aux);
                 updaterKey();
+                calculatePurchAmount();
             }
             else if (purchAmount === 5){
                 alert("Alcanzaste el número máximo de pasajeros. Realiza una reserva separada !");
@@ -54,6 +52,7 @@ function Counter({goods, updaterKey}) {
                 let aux = purchAmount - 1;
                 updatePurch(goods,aux);
                 updaterKey();
+                calculatePurchAmount();
             }
             else if (purchAmount === 1){
                 alert("Ups, no podes seleccionar menos de 1 pasajero !");            }

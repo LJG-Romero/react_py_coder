@@ -36,12 +36,13 @@ export const StateProvider = ({children}) => {
     const [idPurch, setIdPurch] = useState(0);
 
     /* State manager - Id Confirm */
-    const [idConfirm, setIdConfirm] = useState("")
+    const [idConfirm, setIdConfirm] = useState("");
+
+    /* State manager - Total price */
+    const [totalPrice, setTotalPrice] = useState(0);
 
     /* State Test */
     const [test, setTest] = useState(true);
-    console.log(test);
-    console.log(focus);
 
     useEffect( () => {
 
@@ -53,7 +54,6 @@ export const StateProvider = ({children}) => {
                 temp.push(dest.data());
             } )
             // let temp = response.data();
-            console.log(temp);
             setOptsOrig(temp);
         }
         dataPetition();
@@ -95,6 +95,7 @@ export const StateProvider = ({children}) => {
         setDestSelect(false);
         setFocus(false);
         setCounterStatus(true);
+        setTotalPrice(price)
     }
 
     function handlePurchaseContainer() {
@@ -116,9 +117,17 @@ export const StateProvider = ({children}) => {
         console.log(price)
     }
     
-    function calculatePurchAmount(db) {
-        return db.price * db.userAmount
+    function calculatePurchAmount() {
+        purchaseContainer.map ( (purch) => {
+            let temp = 0;
+            temp = temp + purch.price;
+            setTotalPrice(temp);
+            
+        })
     }
+    // function calculatePurchAmount(db) {
+    //     return db.price * db.userAmount
+    // }
     function handleReset() {
         setFocus(false);
         setDestSelect(false);
@@ -148,7 +157,6 @@ export const StateProvider = ({children}) => {
                 offerOpts,
                 price,
                 focus,
-                idPurch,
                 destSelect,
                 purchaseFactory,
                 capOriVal,
@@ -159,7 +167,6 @@ export const StateProvider = ({children}) => {
                 handlePrice,
                 handleFocuStatus,
                 setIdPurch,
-                calculatePurchAmount,
                 setFocus,
                 setTest,
                 test,
@@ -168,10 +175,12 @@ export const StateProvider = ({children}) => {
                 counterStatus,
                 setCounterStatus,
                 setUserAmount,
-                setPurchaseContainer,
                 updatePurch,
                 idConfirm,
-                setIdConfirm
+                setIdConfirm,
+                calculatePurchAmount,
+                totalPrice,
+                setPurchaseContainer
                 
             }
         }>

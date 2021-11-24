@@ -13,7 +13,7 @@ import img from '../assets/Success_bill_payment_icon.jpeg';
 
 function Confirm() {
 
-    const {idConfirm} = useContext(StateContext);
+    const {idConfirm, setUserAmount, setCounterStatus} = useContext(StateContext);
 
     return (
         <div className="flightPay">
@@ -21,9 +21,20 @@ function Confirm() {
             <h1>Confirmación de Pago</h1>
             <div className="flightPay--Container">
 
-                <h3>ID Reserva {idConfirm}</h3>
+                <div className="flightPayForm__Container">
+                <h3>ID Reserva</h3>
+                <p><strong>{idConfirm}</strong></p>
+                {/* <p>Próximamente recibirá un correo con los datos de su reserva.</p> */}
+                <h3>Gracias por volar con nosotros !</h3>
+
+                <Link to={"/"} onClick={ () => {setCounterStatus(false); setUserAmount(1)} }>
+                    <button className="generalBtn">Home</button>
+                </Link>
+
+                </div>
+
                 
-                <div className="flightPayImg">
+                <div className="flightPayImg confirm">
                     <img src={img} alt="Icono confirmación de pago" />
                 </div>
             </div>

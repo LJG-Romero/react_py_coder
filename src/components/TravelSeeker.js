@@ -18,7 +18,6 @@ function TravelSeeker({title}){
             optsOrig,
             optsDest,
             handleFlightOpts,
-            focus,
             destSelect
         } = useContext(StateContext);
     
