@@ -10,6 +10,7 @@ import './styles.css';
 
 /*** Components ****/
 import Header from './components/Header.js';
+// import Footer from "./components/Footer";
 
 /*** Views ****/
 import Home from "./views/Home";
@@ -45,6 +46,8 @@ function App() {
 
 
         </Switch>
+
+        {/* <Footer/> */}
     
       </Router>
     </StateProvider>

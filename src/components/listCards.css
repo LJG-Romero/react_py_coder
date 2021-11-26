@@ -1,4 +1,5 @@
 .mainApp__ListCards{
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;

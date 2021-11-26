@@ -18,7 +18,7 @@ function Header(){
         <div className="header">
             <Link to="/" className="detail">
                 <div className="header__Logo" onClick={ () => {setFocus(false); setDestSelect(false); setCounterStatus(false); setUserAmount(1)} }>
-                    <h1 className="logo">Proyect Brand</h1>
+                    <h1 className="logo"><i>Airline Project</i></h1>
                 </div>
             </Link>
             <nav className="header__Nav">

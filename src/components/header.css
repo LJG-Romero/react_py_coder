@@ -15,8 +15,8 @@
     --tertiaryModel: transparent;
     --quaternaryModel: transparent;
 }
-/* Header */
 
+/* Header */
 .header{
     height: 75px;
     background-color: var(--backHeader);
@@ -80,15 +80,6 @@
     color: var(--primaryPage);
 }
 
-
-
-
-
-
-
-
-
-
 .nav__Cart{
     /* height: 40px; */
     width: 50px;
@@ -127,20 +118,3 @@
     text-align: center;
     border: 1px solid var(--quaternaryModel);
 }
-
-
-
-
-/* .nav__Cart__Count{
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    background-color: white;
-    transform: rotate(60deg);
-}
-.nav__Cart__Count p{
-    width: 12px;
-    text-align: center;
-    font-size: 10px;
-    border: 1px solid var(--quaternaryModel);
-} */

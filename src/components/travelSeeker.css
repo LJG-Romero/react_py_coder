@@ -1,5 +1,6 @@
 .mainApp__TravelSeeker{
     width: 80vw;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;

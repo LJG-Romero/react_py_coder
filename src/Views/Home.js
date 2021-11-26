@@ -6,6 +6,7 @@ import "./home.css"
 /*** Components ****/
 import TravelSeeker from "../components/TravelSeeker";
 import ListCards from "../components/ListCards";
+import Footer from "../components/Footer";
 
 function Home() {
     return (
@@ -18,6 +19,8 @@ function Home() {
             <ListCards
               title = "Destinos"
             />
+            
+            <Footer/>
       </div>
     )
 }
