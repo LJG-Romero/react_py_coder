@@ -80,7 +80,8 @@ export const StateProvider = ({children}) => {
             origin: optsOrig[origin - 1].name,
             destiny: optsDest[destiny - 1].name,
             price: price * userAmount,
-            userAmount: userAmount
+            userAmount: userAmount,
+            paxData: []
         }
 
         let temp = [];

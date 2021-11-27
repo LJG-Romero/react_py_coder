@@ -34,7 +34,7 @@ function FlightPax() {
                             )} )
                     }
                     <Link to={"/Pago"}>
-                        <button className="generalBtn">Tarjeta</button>
+                        <button className="generalBtn" onClick={() => console.log(purchaseContainer)}>Tarjeta</button>
                     </Link>
 
                 </form>

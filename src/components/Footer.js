@@ -21,27 +21,17 @@ function Footer() {
                     <p>Preguntas Frecuentes</p>
                     <p>Políticas de Equipaje</p>
                     <p>Políticas Covid-19</p>
-                    {/* <ul>
-                        <li>Preguntas Frecuentes</li>
-                        <li>Políticas de Equipaje</li>
-                        <li>Políticas Covid-19</li>
-                    </ul> */}
                 </section>
 
                 <section className="footer__Data" >
                     <h3>Gestioná tu Reserva</h3>
                     <p>Check In</p>
-                    {/* <ul>
-                        <li>Check In</li>
-                    </ul> */}
+                    <p>Servicios Especiales</p>
                 </section>
 
                 <section className="footer__Data" >
                     <h3>Te sumás al equipo?</h3>
                     <p>Trabajá con Nosotros</p>
-                    {/* <ul>
-                        <li>Trabajá con Nosotros</li>
-                    </ul> */}
                 </section>
             </div>
             
@@ -59,9 +49,9 @@ function Footer() {
                 </div>
 
                 <div className="footer__Credits" >
-                    <p class="credits" >Powered by <strong>Lucas Romero</strong></p>
+                    <p className="credits" >Powered by <strong>Lucas Romero</strong></p>
                     <Link to="https://www.vecteezy.com" className="detail">
-                        <p class="collaborations">Img supplier <strong>Vecteezy</strong></p>
+                        <p className="collaborations">Img supplier <strong>Vecteezy</strong></p>
                     </Link>
                     
                 </div>
